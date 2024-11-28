@@ -1,0 +1,47 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"ts_colisao",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+      ],},
+    {"$GMAutoTileSet":"","%Name":"autotile_2","closed_edge":false,"name":"autotile_2","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":52,
+    "SerialiseWidth":42,
+    "TileCompressedData":[
+      -1838,0,-10,1,-32,0,-10,1,-32,0,-10,1,-32,0,-10,1,-32,0,-10,1,-32,0,-10,1,-32,0,-10,1,-32,0,-10,1,-32,
+      0,-10,1,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"ts_colisao",
+  "out_columns":1,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Tile Sets",
+    "path":"folders/Tile Sets.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_colisao",
+    "path":"sprites/Spr_colisao/Spr_colisao.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":3,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":3,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":2,
+}
