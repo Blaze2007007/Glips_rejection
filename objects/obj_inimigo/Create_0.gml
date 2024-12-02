@@ -1,16 +1,16 @@
 grv = 0.5
 movex = 0
 vely = 0
-canchange = true
-canchange2 = true
+dis_from_player = 0
 my_dir = 0
 state = ENEMYSTATES.IDLE
-vulneravel = true
+time_source1 = 0
+time_source2 = 0
+time_source3 = 0
 
 enum ENEMYSTATES
 {
 	IDLE,
-	MOVING,
 	ALERT,
 	ATTACKING,
 	HIT,

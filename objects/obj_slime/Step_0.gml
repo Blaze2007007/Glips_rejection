@@ -187,7 +187,7 @@ vely = vely + grv
 		}
 		case STATES.ATTACKING:
 		#region
-		if(keyboard_check_pressed(ord("E")) && facing == 0)
+		if(keyboard_check_pressed(ord("E")))
 		{
 			if(keyboard_check_pressed(ord("E")) && last_dir == true)
 			{
@@ -196,6 +196,10 @@ vely = vely + grv
 				if(image_index >= image_number -1)
 				{
 					image_speed = 0
+				}
+				else
+				{
+					sprite_index = sprite_ataque
 				}
 			}
 			else if(keyboard_check_pressed(ord("E")) && last_dir == false)
@@ -206,6 +210,10 @@ vely = vely + grv
 				{
 					image_speed = 0
 				}
+				else
+				{
+					sprite_index = sprite_ataque
+				}
 			}
 		}
 		#endregion
@@ -214,20 +222,15 @@ if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 	room_goto_next()
 	obj_slime.x = 170
 	obj_slime.y = 600
+	instance_destroy(obj_hollow)
 }
-if(keyboard_check_pressed(ord("Q")))
+if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
 {
-	if(global.vida > 0)
-	{
 		global.vida -= 1
-	}
 }
-if(keyboard_check_pressed(ord("R")))
+if(keyboard_check(ord("R")) && global.vida < 3)
 {
-	if(global.vida < 3)
-	{
 		global.vida += 1
-	}
 }
 if(room == rm_inicio)
 {
