@@ -23,7 +23,7 @@ if (instance_exists(obj_slime))
 		draw_sprite(spr_vazio,0,cam_x,cam_y)
 		draw_sprite(spr_vazio,0,cam_x + 75,cam_y)
 		draw_sprite(spr_vazio,0,cam_x + 150,cam_y)
-	} 
+	}
 }
 else
 {

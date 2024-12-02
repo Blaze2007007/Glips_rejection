@@ -10,10 +10,12 @@ function trocadeslimes()
 		if(instance_exists(obj_slime))
 		{
 			instance_change(slimes[1],true)
+			global.slime = 1
 		}
 		else if(instance_exists(obj_slimepegajoso) && !instance_exists(obj_limite))
 		{
 			instance_change(slimes[0],true)
+			global.slime = 0
 		}
 		
 	}

@@ -26,7 +26,7 @@ actual_delta = delta_time/1000000
 delta_multiplier = actual_delta/target_delta
 
 inmenu = false
-global.vida = 15
+global.vida = 3
 //true = direita e false = esquerda
 last_dir = false
 dano = 5

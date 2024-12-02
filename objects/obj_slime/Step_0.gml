@@ -217,8 +217,17 @@ if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 }
 if(keyboard_check_pressed(ord("Q")))
 {
-	global.vida -= 1
-	show_debug_message("vida - ",global.vida)
+	if(global.vida > 0)
+	{
+		global.vida -= 1
+	}
+}
+if(keyboard_check_pressed(ord("R")))
+{
+	if(global.vida < 3)
+	{
+		global.vida += 1
+	}
 }
 if(room == rm_inicio)
 {
