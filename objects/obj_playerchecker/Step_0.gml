@@ -1,15 +1,15 @@
 if(instance_exists(obj_slime))
 {
-	y = obj_slime.y - 32
-	x = obj_slime.x - 32
+	y = obj_slime.y
+	x = obj_slime.x
 }
 else if(instance_exists(obj_slimepegajoso))
 {
-	y = obj_slimepegajoso.y - 32
-	x = obj_slimepegajoso.x -32
+	y = obj_slimepegajoso.y
+	x = obj_slimepegajoso.x
 }
 else if(instance_exists(obj_slimemoldavel))
 {
-	y = obj_slimemoldavel.y - 32
-	x = obj_slimemoldavel.x -32
+	y = obj_slimemoldavel.y
+	x = obj_slimemoldavel.x
 }
