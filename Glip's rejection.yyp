@@ -61,6 +61,7 @@
     {"id":{"name":"obj_parede","path":"objects/obj_parede/obj_parede.yy",},},
     {"id":{"name":"obj_playerchecker","path":"objects/obj_playerchecker/obj_playerchecker.yy",},},
     {"id":{"name":"obj_porta","path":"objects/obj_porta/obj_porta.yy",},},
+    {"id":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},},
     {"id":{"name":"obj_slime","path":"objects/obj_slime/obj_slime.yy",},},
     {"id":{"name":"obj_slimemoldavel","path":"objects/obj_slimemoldavel/obj_slimemoldavel.yy",},},
     {"id":{"name":"obj_slimepegajoso","path":"objects/obj_slimepegajoso/obj_slimepegajoso.yy",},},

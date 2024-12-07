@@ -5,16 +5,6 @@ grv = 2
 vely = 0
 movex = 0
 pode_mudar = true
-pode_atacar = true
-if(timer <= 0)
-{
-	timer = 180
-	pode_atacar = true
-}
-else
-{
-	timer--;
-}
 
 switch(state)
 {
@@ -169,11 +159,13 @@ switch(state)
 	#endregion
 	case ENEMYSTATES.ATTACKING: //ESTADO 2
 	#region
-	
-	if(place_meeting(x,y,obj_playerchecker) && global.vida > 0 && pode_atacar)
+	if(place_meeting(x,y,obj_playerchecker) && global.vida == 3)
 	{
 		global.vida --
-		pode_atacar = false
+	}
+	else if(place_meeting(x,y,obj_playerchecker) && global.vida > 0)
+	{
+		global.vida -= 1/120
 	}
 	
 	if(collision_circle(x,y,64,obj_playerchecker,false,false) && keyboard_check_pressed(ord("E")))
