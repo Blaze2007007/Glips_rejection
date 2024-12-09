@@ -6,6 +6,7 @@ my_dir = 0
 state = ENEMYSTATES.IDLE
 pode_mudar = true
 opcao = 0
+attacking = false
 
 enum ENEMYSTATES
 {

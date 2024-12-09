@@ -11,12 +11,10 @@ if(inmenu)
 	global.gamepaused = true
 }
 
-actual_delta = delta_time/1000000
-delta_multiplier = actual_delta/target_delta 
 //Para onde nos mexemos horizontalmente
 direcao = _direita - _esquerda
 
-velx = direcao * slimevel * delta_multiplier
+velx = direcao * slimevel
 
 if(direcao == -1)
 {
@@ -226,9 +224,9 @@ if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 }
 if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
 {
-		global.vida -= 1
+		global.vida = ceil(global.vida) - 1
 }
-if(keyboard_check(ord("R")) && global.vida < 3)
+if(keyboard_check(ord("R")) && global.vida <= 2)
 {
 		global.vida += 1
 }

@@ -22,9 +22,6 @@ enum STATES
 
 state = STATES.IDLE
 
-actual_delta = delta_time/1000000
-delta_multiplier = actual_delta/target_delta
-
 inmenu = false
 global.vida = 3
 //true = direita e false = esquerda

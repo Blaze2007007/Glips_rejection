@@ -159,11 +159,17 @@ switch(state)
 	#endregion
 	case ENEMYSTATES.ATTACKING: //ESTADO 2
 	#region
-	if(place_meeting(x,y,obj_playerchecker) && global.vida == 3)
+	
+	if(!collision_circle(x,y,80,obj_playerchecker,false,false))
 	{
-		global.vida --
+		attacking = false
 	}
-	else if(place_meeting(x,y,obj_playerchecker) && global.vida > 0)
+	else if(place_meeting(x,y,obj_playerchecker) && attacking == false && global.vida > 0)
+	{
+		global.vida = ceil(global.vida) - 1
+		attacking = true
+	}
+	else if(place_meeting(x,y,obj_playerchecker) && attacking == true && global.vida > 0)
 	{
 		global.vida -= 1/120
 	}

@@ -12,7 +12,7 @@ if(keyboard_check(ord("Z")))
 if(keyboard_check(ord("X")))
 {
 	draw_set_color(c_red)
-	draw_circle(x,y,64,false)
+	draw_circle(x,y,80,false)
 	draw_set_color(c_blue)
 	draw_text(x + 10,y - 32,state)
 }

@@ -12,18 +12,7 @@ direcao = 0
 global.gamepaused = false
 facing = 0
 
-enum STATES
-{
-	IDLE,
-	MOVING,
-	MENU,
-	ATTACKING
-}
-
 state = STATES.IDLE
-
-actual_delta = delta_time/1000000
-delta_multiplier = actual_delta/target_delta
 
 inmenu = false
 global.vida = 3
