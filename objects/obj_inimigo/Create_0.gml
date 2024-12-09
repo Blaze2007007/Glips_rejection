@@ -4,9 +4,9 @@ vely = 0
 dis_from_player = 0
 my_dir = 0
 state = ENEMYSTATES.IDLE
-pode_mudar = true
+pode_mudar = false
 opcao = 0
-attacking = false
+pode_atacar = true
 
 enum ENEMYSTATES
 {

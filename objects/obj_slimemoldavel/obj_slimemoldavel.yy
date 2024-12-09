@@ -9,10 +9,7 @@
     "name":"grp_slimes",
     "path":"folders/Objects/grp_slimes.yy",
   },
-  "parentObjectId":{
-    "name":"obj_jogador",
-    "path":"objects/obj_jogador/obj_jogador.yy",
-  },
+  "parentObjectId":null,
   "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

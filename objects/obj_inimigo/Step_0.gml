@@ -4,18 +4,26 @@ state = ENEMYSTATES.IDLE
 grv = 2
 vely = 0
 movex = 0
-pode_mudar = true
 
 switch(state)
 {
 	case ENEMYSTATES.IDLE: //ESTADO 0
 	#region
-	if(pode_mudar)
-	{
-		opcao = choose(0,1)
+		count ++
+		if(pode_mudar)
+		{
+			pode_mudar = false
+			opcao = round(random(3))
+		}
+		else if(count == 180)
+		{
+			count = 0
+			pode_mudar = true
+		}
+		
 		switch(opcao)
 		{
-			case 0:
+			case 1:
 				movex += 1
 				if(place_meeting(x,y+2,_mapats))
 				{
@@ -26,7 +34,7 @@ switch(state)
 					vely += 1
 					vely = vely + grv
 				}
-			case 1:
+			case 2:
 				movex -= 1
 				if(place_meeting(x,y+2,_mapats))
 				{
@@ -37,32 +45,33 @@ switch(state)
 					vely += 1
 					vely = vely + grv
 				}
+			case 3:
+				movex = 0
+				if(place_meeting(x,y+2,_mapats))
+				{
+					vely = 0
+				}
+				else if(vely < 1)
+				{
+					vely += 1
+					vely = vely + grv
+				}
 		}
-		pode_mudar = false
-	}
-	else
-	{
-		return
-	}
 	//verificação de proximidade
-	if(collision_circle(x,y,192,obj_playerchecker,false,false))
+	if(collision_circle(x,y,224,obj_playerchecker,false,false))
 	{
 		state = ENEMYSTATES.ALERT
-	}
-	
-	if(place_meeting(x,y+2,_mapats))
-	{
-		vely = 0
-	}
-	else if(vely < 1)
-	{
-		vely += 1
-		vely = vely + grv
 	}
 	#endregion
 	
 	case ENEMYSTATES.ALERT: //ESTADO 1
 	#region
+	if(!collision_circle(x,y,224,obj_playerchecker,false,false))
+	{
+		state = ENEMYSTATES.IDLE
+	}
+	else
+	{
 	if(place_meeting(x,y+2,_mapats))
 	{
 		vely = 0
@@ -156,27 +165,31 @@ switch(state)
 	{
 		state = ENEMYSTATES.HIT
 	}
+	}
 	#endregion
 	case ENEMYSTATES.ATTACKING: //ESTADO 2
 	#region
-	
-	if(!collision_circle(x,y,80,obj_playerchecker,false,false))
+	#region // sistema de ataque
+	count ++
+	if(count == 180)
 	{
-		attacking = false
+		count = 0
+		pode_atacar = true
 	}
-	else if(place_meeting(x,y,obj_playerchecker) && attacking == false && global.vida > 0)
+	if(place_meeting(x,y,obj_playerchecker) && pode_atacar && global.vida > 0)
 	{
-		global.vida = ceil(global.vida) - 1
-		attacking = true
+		global.vida --
+		pode_atacar = false
+		count = 0
 	}
-	else if(place_meeting(x,y,obj_playerchecker) && attacking == true && global.vida > 0)
-	{
-		global.vida -= 1/120
-	}
-	
+	#endregion
 	if(collision_circle(x,y,64,obj_playerchecker,false,false) && keyboard_check_pressed(ord("E")))
 	{
 		state = ENEMYSTATES.HIT
+	}
+	if(!place_meeting(x,y,obj_playerchecker))
+	{
+		state = ENEMYSTATES.ALERT
 	}
 		//attack sprite
 	#endregion

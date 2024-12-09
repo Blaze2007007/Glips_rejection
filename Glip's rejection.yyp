@@ -55,7 +55,6 @@
     {"id":{"name":"obj_hollow","path":"objects/obj_hollow/obj_hollow.yy",},},
     {"id":{"name":"obj_info","path":"objects/obj_info/obj_info.yy",},},
     {"id":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},},
-    {"id":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},},
     {"id":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},},
     {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},},
     {"id":{"name":"obj_parede","path":"objects/obj_parede/obj_parede.yy",},},
