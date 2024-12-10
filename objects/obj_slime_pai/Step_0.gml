@@ -58,30 +58,26 @@ switch(state)
 		}
 		else if(velx == 0)
 		{
-			sprite_index = spr_slimenormal
+			//sprite normal
 		}
 	#endregion
 	case STATES.MOVING:
 		#region
 		
-//"" verticalmente
-vely = vely + grv
+	//"" verticalmente
+	vely = vely + grv
 
 		if(_direita)
 		{
-			sprite_index = spr_slimenormal_direita
+			//sprite direita
 		}
 		if(_esquerda)
 		{
-			sprite_index = spr_slimenormal_esquerda
+			//sprite esquerda
 		}
 		else if(velx == 0)
 		{
-			sprite_index = spr_slimenormal
-		}
-		if(!instance_exists(obj_dialogo1))
-		{
-			state = STATES.IDLE
+			//sprite normal
 		}
 		if(keyboard_check_pressed(ord("E")))
 		{
@@ -164,75 +160,18 @@ vely = vely + grv
 			slimevel = 5
 		}
 		#endregion
-		if(!instance_exists(obj_dialogo1))
-		{
-			ativardialogo = false
-			slimevel = 5
-			salto = - 35
-			trocadeslimes()
-		}
-		if(place_meeting(x,y,obj_limite))
-		{
-			stop()
-			if(_direita || _esquerda)
-			{
-				sprite_index = spr_slimenormal
-			}
-			obj_dialogo1.visible = true
-			obj_dialogo1.image_speed = 0
-			obj_dialogo1.image_index = 0
-			instance_destroy(obj_limite)
-		}
 		case STATES.ATTACKING:
 		#region
 		if(keyboard_check_pressed(ord("E")))
 		{
-			if(keyboard_check_pressed(ord("E")) && last_dir == true)
-			{
-				sprite_ataque = spr_slimenormal_ataque_direitaHB
-				sprite_index = sprite_ataque
-				if(image_index >= image_number -1)
-				{
-					image_speed = 0
-				}
-				else
-				{
-					sprite_index = sprite_ataque
-				}
-			}
-			else if(keyboard_check_pressed(ord("E")) && last_dir == false)
-			{
-				sprite_ataque = spr_slimenormal_ataque_esquerdaHB
-				sprite_index = sprite_ataque
-				if(image_index >= image_number -1)
-				{
-					image_speed = 0
-				}
-				else
-				{
-					sprite_index = sprite_ataque
-				}
-			}
+			
 		}
-		#endregion
-if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
-{
-	room_goto_next()
-	obj_slime.x = 170
-	obj_slime.y = 600
-	instance_destroy(obj_hollow)
-}
 if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
 {
-		global.vida -= 1
+		global.vida = ceil(global.vida) - 1
 }
-if(keyboard_check(ord("R")) && global.vida < 3)
+if(keyboard_check(ord("R")) && global.vida <= 2)
 {
 		global.vida += 1
-}
-if(room == rm_inicio)
-{
-	obj_slime.x = 691
-	obj_slime.y = 646
 }
 }

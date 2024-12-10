@@ -2,18 +2,21 @@
   "$GMObject":"",
   "%Name":"obj_slime",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_slime",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_ataque","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimenormal_ataque_direitaHB",},
+  ],
   "parent":{
     "name":"grp_slimes",
     "path":"folders/Objects/grp_slimes.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_slime_pai",
+    "path":"objects/obj_slime_pai/obj_slime_pai.yy",
+  },
   "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

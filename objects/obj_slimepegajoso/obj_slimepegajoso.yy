@@ -12,7 +12,10 @@
     "name":"grp_slimes",
     "path":"folders/Objects/grp_slimes.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_slime_pai",
+    "path":"objects/obj_slime_pai/obj_slime_pai.yy",
+  },
   "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

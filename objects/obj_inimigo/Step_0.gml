@@ -9,22 +9,26 @@ switch(state)
 {
 	case ENEMYSTATES.IDLE: //ESTADO 0
 	#region
-		count ++
+	
+		count1 ++
+		
 		if(pode_mudar)
 		{
 			pode_mudar = false
-			opcao = round(random(3))
+			opcao = round(random(2))
 		}
-		else if(count == 180)
+		else if(count1 == 120)
 		{
-			count = 0
+			count1 = 0
 			pode_mudar = true
 		}
-		
 		switch(opcao)
 		{
-			case 1:
+			case 0:
+			if(!collision_circle(x,y,224,obj_playerchecker,false,false))
+			{
 				movex += 1
+				x -= movex
 				if(place_meeting(x,y+2,_mapats))
 				{
 					vely = 0
@@ -34,8 +38,68 @@ switch(state)
 					vely += 1
 					vely = vely + grv
 				}
-			case 2:
+				y += vely / 2
+				for(var _i = 0; _i < 1000; _i++)
+			{
+				//Direita
+				if(!place_meeting(x + _i,y,_mapats))
+				{
+					x += _i
+					break
+				}
+				//Esquerda
+				if(!place_meeting(x - _i,y,_mapats))
+				{
+					x -= _i
+					break
+				}
+				//Cima
+				if(!place_meeting(x,y - _i,_mapats))
+				{
+					y -= _i
+					break
+				}
+				//Baixo
+				if(!place_meeting(x,y + _i,_mapats))
+				{
+					y += _i
+					break
+				}
+				//Topo direita
+				if(!place_meeting(x + _i,y - _i,_mapats))
+				{
+					x += _i
+					y -= _i
+					break
+				}
+				//Topo esquerda
+				if(!place_meeting(x - _i,y - _i,_mapats))
+				{
+					x -= _i
+					y -= _i
+					break
+				}
+				//Baixo direita
+				if(!place_meeting(x + _i,y + _i,_mapats))
+				{
+					x += _i
+					y += _i
+					break
+				}
+				//Baixo esquerda
+				if(!place_meeting(x - _i,y + _i,_mapats))
+				{
+					x -= _i
+					y += _i
+					break
+				}
+			}
+			}
+			case 1:
+			if(!collision_circle(x,y,224,obj_playerchecker,false,false))
+			{
 				movex -= 1
+				x -= movex
 				if(place_meeting(x,y+2,_mapats))
 				{
 					vely = 0
@@ -45,7 +109,64 @@ switch(state)
 					vely += 1
 					vely = vely + grv
 				}
-			case 3:
+				y += vely / 2
+				for(var _i = 0; _i < 1000; _i++)
+			{
+				//Direita
+				if(!place_meeting(x + _i,y,_mapats))
+				{
+					x += _i
+					break
+				}
+				//Esquerda
+				if(!place_meeting(x - _i,y,_mapats))
+				{
+					x -= _i
+					break
+				}
+				//Cima
+				if(!place_meeting(x,y - _i,_mapats))
+				{
+					y -= _i
+					break
+				}
+				//Baixo
+				if(!place_meeting(x,y + _i,_mapats))
+				{
+					y += _i
+					break
+				}
+				//Topo direita
+				if(!place_meeting(x + _i,y - _i,_mapats))
+				{
+					x += _i
+					y -= _i
+					break
+				}
+				//Topo esquerda
+				if(!place_meeting(x - _i,y - _i,_mapats))
+				{
+					x -= _i
+					y -= _i
+					break
+				}
+				//Baixo direita
+				if(!place_meeting(x + _i,y + _i,_mapats))
+				{
+					x += _i
+					y += _i
+					break
+				}
+				//Baixo esquerda
+				if(!place_meeting(x - _i,y + _i,_mapats))
+				{
+					x -= _i
+					y += _i
+					break
+				}
+			}
+			}
+			case 2:
 				movex = 0
 				if(place_meeting(x,y+2,_mapats))
 				{
@@ -56,6 +177,62 @@ switch(state)
 					vely += 1
 					vely = vely + grv
 				}
+				y += vely / 2
+				for(var _i = 0; _i < 1000; _i++)
+			{
+				//Direita
+				if(!place_meeting(x + _i,y,_mapats))
+				{
+					x += _i
+					break
+				}
+				//Esquerda
+				if(!place_meeting(x - _i,y,_mapats))
+				{
+					x -= _i
+					break
+				}
+				//Cima
+				if(!place_meeting(x,y - _i,_mapats))
+				{
+					y -= _i
+					break
+				}
+				//Baixo
+				if(!place_meeting(x,y + _i,_mapats))
+				{
+					y += _i
+					break
+				}
+				//Topo direita
+				if(!place_meeting(x + _i,y - _i,_mapats))
+				{
+					x += _i
+					y -= _i
+					break
+				}
+				//Topo esquerda
+				if(!place_meeting(x - _i,y - _i,_mapats))
+				{
+					x -= _i
+					y -= _i
+					break
+				}
+				//Baixo direita
+				if(!place_meeting(x + _i,y + _i,_mapats))
+				{
+					x += _i
+					y += _i
+					break
+				}
+				//Baixo esquerda
+				if(!place_meeting(x - _i,y + _i,_mapats))
+				{
+					x -= _i
+					y += _i
+					break
+				}
+			}
 		}
 	//verificação de proximidade
 	if(collision_circle(x,y,224,obj_playerchecker,false,false))
@@ -63,7 +240,6 @@ switch(state)
 		state = ENEMYSTATES.ALERT
 	}
 	#endregion
-	
 	case ENEMYSTATES.ALERT: //ESTADO 1
 	#region
 	if(!collision_circle(x,y,224,obj_playerchecker,false,false))
@@ -170,17 +346,17 @@ switch(state)
 	case ENEMYSTATES.ATTACKING: //ESTADO 2
 	#region
 	#region // sistema de ataque
-	count ++
-	if(count == 180)
+	count2 ++
+	if(count2 == 180)
 	{
-		count = 0
+		count2 = 0
 		pode_atacar = true
 	}
 	if(place_meeting(x,y,obj_playerchecker) && pode_atacar && global.vida > 0)
 	{
 		global.vida --
 		pode_atacar = false
-		count = 0
+		count2 = 0
 	}
 	#endregion
 	if(collision_circle(x,y,64,obj_playerchecker,false,false) && keyboard_check_pressed(ord("E")))
@@ -199,10 +375,19 @@ switch(state)
 	{
 		state = ENEMYSTATES.ATTACKING
 	}
+	if(collision_circle(x,y,64,obj_playerchecker,false,false) && keyboard_check_pressed(ord("E")))
+	{
+		enemy_hp --
+	}
+	if(enemy_hp == 0)
+	{
+		state = ENEMYSTATES.DEAD
+	}
 		//hit sprite
 	#endregion
 	case ENEMYSTATES.DEAD: //ESTADO 4
 	#region
+	movex = 0
 		//death sprite
 	#endregion
 }
