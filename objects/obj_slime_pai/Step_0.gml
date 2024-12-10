@@ -4,8 +4,6 @@ var _esquerda = keyboard_check(vk_left) or keyboard_check(ord("A"))
 var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(vk_space)
 var _ataque = keyboard_check_pressed(ord("E"))
 
-var _mapats = layer_tilemap_get_id("Tiles_2")
-
 if(inmenu)
 {
 	global.gamepaused = true
@@ -15,6 +13,7 @@ if(inmenu)
 direcao = _direita - _esquerda
 
 velx = direcao * slimevel
+image_xscale = facing
 
 if(direcao == -1)
 {
@@ -46,6 +45,7 @@ vely = salto * grv
 	vely += 1
 }
 move_and_collide(velx,vely,_mapats)
+
 state = STATES.IDLE
 
 switch(state)
@@ -58,7 +58,7 @@ switch(state)
 		}
 		else if(velx == 0)
 		{
-			//sprite normal
+			sprite_index = sprite_idle
 		}
 	#endregion
 	case STATES.MOVING:
@@ -67,17 +67,13 @@ switch(state)
 	//"" verticalmente
 	vely = vely + grv
 
-		if(_direita)
+		if(_direita || _esquerda)
 		{
-			//sprite direita
-		}
-		if(_esquerda)
-		{
-			//sprite esquerda
+			sprite_index = sprite_moving
 		}
 		else if(velx == 0)
 		{
-			//sprite normal
+			sprite_index = sprite_idle
 		}
 		if(keyboard_check_pressed(ord("E")))
 		{
@@ -164,7 +160,7 @@ switch(state)
 		#region
 		if(keyboard_check_pressed(ord("E")))
 		{
-			
+			sprite_index = sprite_ataque
 		}
 if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
 {
@@ -175,3 +171,4 @@ if(keyboard_check(ord("R")) && global.vida <= 2)
 		global.vida += 1
 }
 }
+trocadeslimes()

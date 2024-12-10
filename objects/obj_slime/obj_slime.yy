@@ -8,6 +8,9 @@
   "name":"obj_slime",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_ataque","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimenormal_ataque_direitaHB",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_idle","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimenormal",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_moving","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimenormal_direita",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_morto","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimenormal_morto",},
   ],
   "parent":{
     "name":"grp_slimes",

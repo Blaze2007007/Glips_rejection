@@ -5,7 +5,7 @@ slimevel = 5;
 salto = -35;
 nochao = false
 ativardialogo = true
-target_delta = 1/60
+_mapats = layer_tilemap_get_id("Tiles_2")
 trocavel = false
 ataque = 0
 direcao = 0
@@ -27,6 +27,7 @@ state = STATES.IDLE
 
 inmenu = false
 global.vida = 3
+global.pontos = 0
 //true = direita e false = esquerda
 last_dir = false
 dano = 5
