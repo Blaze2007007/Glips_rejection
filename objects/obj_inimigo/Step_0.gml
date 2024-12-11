@@ -328,7 +328,7 @@ switch(state)
 		return
 	}
 	
-	movex = lengthdir_x(1,my_dir)
+	movex = lengthdir_x(2,my_dir)
 	
 	x += movex
 	move_and_collide(movex,vely,_mapats)

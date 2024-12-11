@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_slimenormal_ataque_direitaHB",
+  "%Name":"spr_slimenormal_ataque_direita",
   "bboxMode":2,
   "bbox_bottom":70,
   "bbox_left":29,
@@ -25,7 +25,7 @@
     {"$GMImageLayer":"","%Name":"ba01e3ba-47ae-4371-a57c-99dc2a9c654a","blendMode":0,"displayName":"default","isLocked":false,"name":"ba01e3ba-47ae-4371-a57c-99dc2a9c654a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"b5a9a369-fd40-47b9-bde3-79c85c318585","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"b5a9a369-fd40-47b9-bde3-79c85c318585","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
   ],
-  "name":"spr_slimenormal_ataque_direitaHB",
+  "name":"spr_slimenormal_ataque_direita",
   "nineSlice":null,
   "origin":9,
   "parent":{
@@ -37,7 +37,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_slimenormal_ataque_direitaHB",
+    "%Name":"spr_slimenormal_ataque_direita",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -61,7 +61,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_slimenormal_ataque_direitaHB",
+    "name":"spr_slimenormal_ataque_direita",
     "playback":1,
     "playbackSpeed":6.0,
     "playbackSpeedType":0,
@@ -73,16 +73,16 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"99308925-f8e8-4f91-80c4-9d38919ea957","path":"sprites/spr_slimenormal_ataque_direitaHB/spr_slimenormal_ataque_direitaHB.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"99308925-f8e8-4f91-80c4-9d38919ea957","path":"sprites/spr_slimenormal_ataque_direita/spr_slimenormal_ataque_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"791ea42e-1949-41a1-8d4b-145545856430","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"42c91fed-c47d-448f-9316-951dc5df92e9","path":"sprites/spr_slimenormal_ataque_direitaHB/spr_slimenormal_ataque_direitaHB.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"42c91fed-c47d-448f-9316-951dc5df92e9","path":"sprites/spr_slimenormal_ataque_direita/spr_slimenormal_ataque_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"7dc6e109-f823-439a-963b-303e1a52898c","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8b00fed4-e849-4f2b-88b1-5fd0a971123a","path":"sprites/spr_slimenormal_ataque_direitaHB/spr_slimenormal_ataque_direitaHB.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8b00fed4-e849-4f2b-88b1-5fd0a971123a","path":"sprites/spr_slimenormal_ataque_direita/spr_slimenormal_ataque_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"caf50dd7-3da7-4b63-a60b-3d6ed7c0c841","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8c4dcb9b-1e0e-409f-adc4-5ad6b118a774","path":"sprites/spr_slimenormal_ataque_direitaHB/spr_slimenormal_ataque_direitaHB.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8c4dcb9b-1e0e-409f-adc4-5ad6b118a774","path":"sprites/spr_slimenormal_ataque_direita/spr_slimenormal_ataque_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"0ea59f5a-3e94-4ff8-8924-708df9d3e014","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

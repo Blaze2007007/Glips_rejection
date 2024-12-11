@@ -34,5 +34,5 @@
     "path":"sprites/spr_playerchecker/spr_playerchecker.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

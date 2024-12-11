@@ -11,6 +11,7 @@ ataque = 0
 direcao = 0
 global.gamepaused = false
 facing = 0
+global.slime = 0
 
 enum STATES
 {

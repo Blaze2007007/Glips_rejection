@@ -9,6 +9,38 @@ if(inmenu)
 	global.gamepaused = true
 }
 
+if(keyboard_check_pressed(ord("C")) && ativardialogo == false)
+{
+	global.slime ++
+	if(global.slime == 3)
+	{
+		global.slime = 0
+	}
+}
+	
+if(global.slime == 0)
+{
+	sprite_idle = spr_slimenormal
+	sprite_ataque = spr_slimenormal_ataque_direita
+	sprite_morto = spr_slimenormal_morto
+	sprite_moving =	spr_slimenormal_direita
+}
+else if(global.slime == 1)
+{
+	sprite_idle = spr_slimepegajoso
+	sprite_ataque = spr_slimepegajoso
+	sprite_morto = spr_slimepegajoso_morto
+	sprite_moving =	spr_slimepegajoso_direita
+}
+else if(global.slime == 2)
+{
+	sprite_idle = spr_slimemoldavel
+	sprite_ataque = spr_slimemoldavel_ataque_direita
+	sprite_morto = spr_slimemoldavel_morto
+	sprite_moving =	spr_slimemoldavel_direita
+}
+
+
 //Para onde nos mexemos horizontalmente
 direcao = _direita - _esquerda
 
@@ -79,7 +111,7 @@ switch(state)
 		{
 			sprite_index = sprite_idle
 		}
-		if(keyboard_check_pressed(ord("E")))
+		if(_ataque)
 		{
 			state = STATES.ATTACKING
 		}
@@ -162,23 +194,7 @@ switch(state)
 	#endregion
 	case STATES.ATTACKING:
 	#region
-		if(keyboard_check_pressed(ord("E")))
-		{
-			sprite_index = sprite_ataque
-			if(image_index != image_number - 1)
-			{
-				while(image_index != image_number - 1)
-				{
-					image_speed = 1
-					image_index ++
-					sprite_index = sprite_ataque
-				}
-			}
-			else if(image_index == image_number - 1)
-			{
-				sprite_index = sprite_idle
-			}
-		}
+
 		if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
 		{
 				global.vida = ceil(global.vida) - 1
@@ -188,33 +204,66 @@ switch(state)
 				global.vida += 1
 		}
 	#endregion
-if(!instance_exists(obj_dialogo1))
+	if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
+	{
+		room_goto_next()
+		x = 170
+		y = 600
+		instance_destroy(obj_hollow)
+	}
+if(global.slime == 0)
 {
-	state = STATES.IDLE
-	ativardialogo = false
-	slimevel = 5
-	salto = - 35
-	trocadeslimes()
+	if(!instance_exists(obj_dialogo1))
+	{
+		state = STATES.IDLE
+		ativardialogo = false
+		slimevel = 5
+		salto = - 35
+	}
+	if(place_meeting(x,y,obj_limite))
+	{
+		stop()
+		obj_dialogo1.visible = true
+		obj_dialogo1.image_speed = 0
+		obj_dialogo1.image_index = 0
+		instance_destroy(obj_limite)
+	}
+	if(room == rm_inicio)
+	{
+		x = 691
+		y = 646
+	}
+	}
 }
-if(place_meeting(x,y,obj_limite))
+if(global.slime == 1)
 {
-	stop()
-	obj_dialogo1.visible = true
-	obj_dialogo1.image_speed = 0
-	obj_dialogo1.image_index = 0
-	instance_destroy(obj_limite)
+	switch(state)
+	{
+		case STATES.CLIMBING:
+			#region
+				if(place_meeting(x,y,obj_parede) && _direita)
+				{
+					y -= 1
+				}
+				else
+				{
+					state = STATES.IDLE
+				}
+			#endregion
+	}
+	if(!instance_exists(obj_dialogo1))
+	{
+		ativardialogo = false
+	}
+	if(ativardialogo == true)
+	{
+		sprite_index = sprite_idle
+		slimevel = 0
+		salto = 0
+	}
+	else
+	{
+		slimevel = 5
+		salto = -35
+	}
 }
-if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
-{
-	room_goto_next()
-	obj_slime_pai.x = 170
-	obj_slime_pai.y = 600
-	instance_destroy(obj_hollow)
-}
-if(room == rm_inicio)
-{
-	obj_slime_pai.x = 691
-	obj_slime_pai.y = 646
-}
-}
-trocadeslimes()
