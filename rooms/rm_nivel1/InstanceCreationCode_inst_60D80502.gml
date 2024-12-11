@@ -1,1 +1,0 @@
-move_and_collide(velx,vely,_mapats)

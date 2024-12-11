@@ -13,6 +13,7 @@ if(inmenu)
 direcao = _direita - _esquerda
 
 velx = direcao * slimevel
+
 image_xscale = facing
 
 if(direcao == -1)
@@ -60,12 +61,15 @@ switch(state)
 		{
 			sprite_index = sprite_idle
 		}
+		if(keyboard_check_pressed(vk_escape))
+		{
+			state = STATES.MENU
+		}
 	#endregion
 	case STATES.MOVING:
-		#region
-		
-	//"" verticalmente
-	vely = vely + grv
+	#region
+		//"" verticalmente
+		vely = vely + grv
 
 		if(_direita || _esquerda)
 		{
@@ -141,9 +145,9 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
-#endregion
-		case STATES.MENU:
-		#region
+	#endregion
+	case STATES.MENU:
+	#region
 		if(instance_exists(obj_menu))
 		{
 			inmenu = true
@@ -155,20 +159,62 @@ switch(state)
 			salto = -35
 			slimevel = 5
 		}
-		#endregion
-		case STATES.ATTACKING:
-		#region
+	#endregion
+	case STATES.ATTACKING:
+	#region
 		if(keyboard_check_pressed(ord("E")))
 		{
 			sprite_index = sprite_ataque
+			if(image_index != image_number - 1)
+			{
+				while(image_index != image_number - 1)
+				{
+					image_speed = 1
+					image_index ++
+					sprite_index = sprite_ataque
+				}
+			}
+			else if(image_index == image_number - 1)
+			{
+				sprite_index = sprite_idle
+			}
 		}
-if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
+		if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
+		{
+				global.vida = ceil(global.vida) - 1
+		}
+		if(keyboard_check(ord("R")) && global.vida <= 2)
+		{
+				global.vida += 1
+		}
+	#endregion
+if(!instance_exists(obj_dialogo1))
 {
-		global.vida = ceil(global.vida) - 1
+	state = STATES.IDLE
+	ativardialogo = false
+	slimevel = 5
+	salto = - 35
+	trocadeslimes()
 }
-if(keyboard_check(ord("R")) && global.vida <= 2)
+if(place_meeting(x,y,obj_limite))
 {
-		global.vida += 1
+	stop()
+	obj_dialogo1.visible = true
+	obj_dialogo1.image_speed = 0
+	obj_dialogo1.image_index = 0
+	instance_destroy(obj_limite)
+}
+if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
+{
+	room_goto_next()
+	obj_slime_pai.x = 170
+	obj_slime_pai.y = 600
+	instance_destroy(obj_hollow)
+}
+if(room == rm_inicio)
+{
+	obj_slime_pai.x = 691
+	obj_slime_pai.y = 646
 }
 }
 trocadeslimes()
