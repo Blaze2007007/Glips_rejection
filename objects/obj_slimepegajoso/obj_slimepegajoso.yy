@@ -4,19 +4,13 @@
   "eventList":[],
   "managed":true,
   "name":"obj_slimepegajoso",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_idle","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimepegajoso",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_slime_pai","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"propertyId":{"name":"sprite_moving","path":"objects/obj_slime_pai/obj_slime_pai.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_slimepegajoso_direita",},
-  ],
+  "overriddenProperties":[],
   "parent":{
     "name":"grp_slimes",
     "path":"folders/Objects/grp_slimes.yy",
   },
-  "parentObjectId":{
-    "name":"obj_slime_pai",
-    "path":"objects/obj_slime_pai/obj_slime_pai.yy",
-  },
-  "persistent":true,
+  "parentObjectId":null,
+  "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -32,7 +26,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"spr_slimepegajoso",
     "path":"sprites/spr_slimepegajoso/spr_slimepegajoso.yy",

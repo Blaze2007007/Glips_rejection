@@ -17,7 +17,7 @@ if(keyboard_check_pressed(ord("C")) && ativardialogo == false)
 		global.slime = 0
 	}
 }
-	
+
 if(global.slime == 0)
 {
 	sprite_idle = spr_slimenormal
@@ -40,7 +40,6 @@ else if(global.slime == 2)
 	sprite_moving =	spr_slimemoldavel_direita
 }
 
-
 //Para onde nos mexemos horizontalmente
 direcao = _direita - _esquerda
 
@@ -54,7 +53,7 @@ if(direcao == -1)
 	//esquerda
 	last_dir = false
 }
-if(direcao == 1)
+else if(direcao == 1)
 {
 	facing = 1
 	//direita
@@ -211,6 +210,7 @@ switch(state)
 		y = 600
 		instance_destroy(obj_hollow)
 	}
+}
 if(global.slime == 0)
 {
 	if(!instance_exists(obj_dialogo1))
@@ -232,7 +232,6 @@ if(global.slime == 0)
 	{
 		x = 691
 		y = 646
-	}
 	}
 }
 if(global.slime == 1)
