@@ -9,6 +9,8 @@ opcao = 0
 count1 = 0
 count2 = 0
 pode_atacar = true
+sprite_idle = spr_hollow_r
+global.vida_inimigo = enemy_hp
 
 enum ENEMYSTATES
 {

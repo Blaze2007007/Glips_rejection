@@ -30,10 +30,6 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"player_hp","filters":[],"listItems":[],"multiselect":false,"name":"player_hp","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"3","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"player_damage","filters":[],"listItems":[],"multiselect":false,"name":"player_damage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"sprite_ataque","filters":[],"listItems":[],"multiselect":false,"name":"sprite_ataque","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal_ataque_direita","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"sprite_idle","filters":[],"listItems":[],"multiselect":false,"name":"sprite_idle","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"sprite_moving","filters":[],"listItems":[],"multiselect":false,"name":"sprite_moving","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal_direita","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"sprite_morto","filters":[],"listItems":[],"multiselect":false,"name":"sprite_morto","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal_morto","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

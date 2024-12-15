@@ -354,7 +354,7 @@ switch(state)
 	}
 	if(place_meeting(x,y,obj_playerchecker) && pode_atacar && global.vida > 0)
 	{
-		global.vida --
+		global.vida -= enemy_damage
 		pode_atacar = false
 		count2 = 0
 	}
@@ -377,9 +377,9 @@ switch(state)
 	}
 	if(collision_circle(x,y,64,obj_playerchecker,false,false) && keyboard_check_pressed(ord("E")))
 	{
-		enemy_hp --
+		global.vida_inimigo --
 	}
-	if(enemy_hp == 0)
+	if(global.vida_inimigo == 0)
 	{
 		state = ENEMYSTATES.DEAD
 	}
@@ -387,7 +387,28 @@ switch(state)
 	#endregion
 	case ENEMYSTATES.DEAD: //ESTADO 4
 	#region
-	movex = 0
+		if(global.vida_inimigo == 0)
+		{
+		movex = 0
 		//death sprite
+		instance_destroy(self)
+			for(var _i;_i < enemy_drops;_i++)
+			{
+				var _random_pos = random(3)
+				var _esq_dir = choose(0,1)
+				switch(_esq_dir)
+				{
+					case 0:
+						_random_pos = sign(_random_pos)
+					case 1:
+						break
+				}
+				instance_create_layer(x + _random_pos,y,layer,obj_drop)
+			}
+		}
+		else
+		{
+			state = STATES.IDLE
+		}
 	#endregion
 }

@@ -96,6 +96,10 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
+		if(_ataque)
+		{
+			state = STATES.ATTACKING
+		}
 	#endregion
 	case STATES.MOVING:
 	#region
@@ -176,6 +180,21 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
+		if(place_meeting(x,y,obj_drop))
+		{
+			var _drops = ds_list_create()
+			var _inst = instance_place_list(x,y,obj_drop,_drops,false)
+			ds_list_add(_drops,_inst)
+			if(_inst > 0)
+			{
+				for(var _i = 0; _i < _inst; _i++)
+				{
+					instance_destroy(_drops[| _i])
+					global.pontos ++
+				}
+			}
+			ds_list_destroy(_drops)
+		}
 	#endregion
 	case STATES.MENU:
 	#region
@@ -193,14 +212,14 @@ switch(state)
 	#endregion
 	case STATES.ATTACKING:
 	#region
-
-		if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
+		sprite_index = sprite_ataque
+		if(image_index == image_number - 1)
 		{
-				global.vida = ceil(global.vida) - 1
+			state = STATES.IDLE
 		}
-		if(keyboard_check(ord("R")) && global.vida <= 2)
+		else
 		{
-				global.vida += 1
+			state = STATES.ATTACKING
 		}
 	#endregion
 	if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
@@ -227,11 +246,6 @@ if(global.slime == 0)
 		obj_dialogo1.image_speed = 0
 		obj_dialogo1.image_index = 0
 		instance_destroy(obj_limite)
-	}
-	if(room == rm_inicio)
-	{
-		x = 691
-		y = 646
 	}
 }
 if(global.slime == 1)
@@ -265,4 +279,12 @@ if(global.slime == 1)
 		slimevel = 5
 		salto = -35
 	}
+}
+if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
+{
+		global.vida = ceil(global.vida) - 1
+}
+if(keyboard_check(ord("R")) && global.vida <= 2)
+{
+		global.vida += 1
 }
