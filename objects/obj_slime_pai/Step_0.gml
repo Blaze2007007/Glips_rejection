@@ -3,6 +3,7 @@ var _direita = keyboard_check(vk_right) or keyboard_check(ord("D"))
 var _esquerda = keyboard_check(vk_left) or keyboard_check(ord("A"))
 var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(vk_space)
 var _ataque = keyboard_check_pressed(ord("E"))
+mapats = layer_tilemap_get_id("Tiles_2")
 
 if(inmenu)
 {
@@ -45,27 +46,23 @@ direcao = _direita - _esquerda
 
 velx = direcao * slimevel
 
-image_xscale = facing
+if(_direita)
+{
+	image_xscale = 1	
+}
+else
+{
+	image_xscale = -1
+}
 
-if(direcao == -1)
-{
-	facing = -1
-	//esquerda
-	last_dir = false
-}
-else if(direcao == 1)
-{
-	facing = 1
-	//direita
-	last_dir = true
-}
+
 function stop()
 {
 	slimevel = 0
 	salto = 0
 }
 
-if(place_meeting(x,y+2,_mapats))
+if(place_meeting(x,y+2,mapats))
 {
 	vely = 0
 if(_cima)
@@ -76,7 +73,7 @@ vely = salto * grv
 {
 	vely += 1
 }
-move_and_collide(velx,vely,_mapats)
+move_and_collide(velx,vely,mapats)
 
 state = STATES.IDLE
 
@@ -84,7 +81,7 @@ switch(state)
 {
 	case STATES.IDLE:
 	#region 
-		if(_direita || _esquerda || _cima)
+		if(_direita || _esquerda)
 		{
 			state = STATES.MOVING
 		}
@@ -99,6 +96,28 @@ switch(state)
 		if(_ataque)
 		{
 			state = STATES.ATTACKING
+		}
+		else
+		{
+			state = STATES.IDLE
+		}
+		if(instance_exists(obj_drop))
+		{
+			if(global.count >= 90)
+			{
+				var _drops = ds_list_create()
+				var _inst = instance_place_list(x,y,obj_drop,_drops,false)
+				ds_list_add(_drops,_inst)
+				if(_inst > 0 && place_meeting(x,y,obj_drop))
+				{
+					for(var _i = 0; _i < _inst; _i++)
+					{
+						instance_destroy(_drops[| _i])
+						global.pontos ++
+					}
+				}
+				ds_list_destroy(_drops)
+			}
 		}
 	#endregion
 	case STATES.MOVING:
@@ -118,57 +137,61 @@ switch(state)
 		{
 			state = STATES.ATTACKING
 		}
-		if(place_meeting(x,y,_mapats))//Correção de colisões
+		else
+		{
+			state = STATES.MOVING
+		}
+		if(place_meeting(x,y,mapats))//Correção de colisões
 		{
 			for(var _i = 0; _i < 1000; _i++)
 			{
 				//Direita
-				if(!place_meeting(x + _i,y,_mapats))
+				if(!place_meeting(x + _i,y,mapats))
 				{
 					x += _i
 					break
 				}
 				//Esquerda
-				if(!place_meeting(x - _i,y,_mapats))
+				if(!place_meeting(x - _i,y,mapats))
 				{
 					x -= _i
 					break
 				}
 				//Cima
-				if(!place_meeting(x,y - _i,_mapats))
+				if(!place_meeting(x,y - _i,mapats))
 				{
 					y -= _i
 					break
 				}
 				//Baixo
-				if(!place_meeting(x,y + _i,_mapats))
+				if(!place_meeting(x,y + _i,mapats))
 				{
 					y += _i
 					break
 				}
 				//Topo direita
-				if(!place_meeting(x + _i,y - _i,_mapats))
+				if(!place_meeting(x + _i,y - _i,mapats))
 				{
 					x += _i
 					y -= _i
 					break
 				}
 				//Topo esquerda
-				if(!place_meeting(x - _i,y - _i,_mapats))
+				if(!place_meeting(x - _i,y - _i,mapats))
 				{
 					x -= _i
 					y -= _i
 					break
 				}
 				//Baixo direita
-				if(!place_meeting(x + _i,y + _i,_mapats))
+				if(!place_meeting(x + _i,y + _i,mapats))
 				{
 					x += _i
 					y += _i
 					break
 				}
 				//Baixo esquerda
-				if(!place_meeting(x - _i,y + _i,_mapats))
+				if(!place_meeting(x - _i,y + _i,mapats))
 				{
 					x -= _i
 					y += _i
@@ -180,20 +203,24 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
-		if(place_meeting(x,y,obj_drop))
+		if(instance_exists(obj_drop))
 		{
-			var _drops = ds_list_create()
-			var _inst = instance_place_list(x,y,obj_drop,_drops,false)
-			ds_list_add(_drops,_inst)
-			if(_inst > 0)
+			count ++
+			if(count == 90)
 			{
-				for(var _i = 0; _i < _inst; _i++)
+				var _drops = ds_list_create()
+				var _inst = instance_place_list(x,y,obj_drop,_drops,false)
+				ds_list_add(_drops,_inst)
+				if(_inst > 0 && place_meeting(x,y,obj_drop))
 				{
-					instance_destroy(_drops[| _i])
-					global.pontos ++
+					for(var _i = 0; _i < _inst; _i++)
+					{
+						instance_destroy(_drops[| _i])
+						global.pontos ++
+					}
 				}
+				ds_list_destroy(_drops)
 			}
-			ds_list_destroy(_drops)
 		}
 	#endregion
 	case STATES.MENU:
@@ -212,15 +239,26 @@ switch(state)
 	#endregion
 	case STATES.ATTACKING:
 	#region
+	if(keyboard_check_pressed(ord("E")) && animation_active == false)
+	{
 		sprite_index = sprite_ataque
-		if(image_index == image_number - 1)
+		animation_active = true; // Activate the animation
+		image_index = 0;         // Reset animation to the first frame
+
+		// Play animation only if it's active
+		if (animation_active) 
 		{
-			state = STATES.IDLE
+		    image_speed = 1; // Ensure the animation is running at the normal speed
+		
+		    // Stop the animation at the last frame
+		    if (image_index >= image_number - 1) {
+		        image_speed = 0;          // Stop animation
+		        animation_active = false; // Disable animation
+		    }
 		}
-		else
-		{
-			state = STATES.ATTACKING
-		}
+
+	}
+	
 	#endregion
 	if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 	{
@@ -248,21 +286,12 @@ if(global.slime == 0)
 		instance_destroy(obj_limite)
 	}
 }
-if(global.slime == 1)
+else if(global.slime == 1)
 {
-	switch(state)
+	if(place_meeting(x,y,obj_parede) && _direita)
 	{
-		case STATES.CLIMBING:
-			#region
-				if(place_meeting(x,y,obj_parede) && _direita)
-				{
-					y -= 1
-				}
-				else
-				{
-					state = STATES.IDLE
-				}
-			#endregion
+		vely -= 1.5
+		y -= 1
 	}
 	if(!instance_exists(obj_dialogo1))
 	{

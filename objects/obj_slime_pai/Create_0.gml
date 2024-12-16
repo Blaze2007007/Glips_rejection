@@ -1,17 +1,18 @@
-grv = 0.5
-velx = 0
-vely = 0
-slimevel = 5;
-salto = -35;
-nochao = false
-ativardialogo = true
-_mapats = layer_tilemap_get_id("Tiles_2")
-trocavel = false
-ataque = 0
-direcao = 0
-global.gamepaused = false
-facing = 0
-global.slime = 0
+grv = 0.5 // Gravidade
+velx = 0 // Velocidade horizontal
+vely = 0  // Velocidade vertical
+slimevel = 5; // Velocidade do slime
+salto = -35; // Esta variável serve para guarda o valor que permite ao slime "saltar"
+ativardialogo = true // Esta variável é usada para verificar diálogos
+mapats = layer_tilemap_get_id("Tiles_2") // Definir colisões do mapa
+direcao = 0 // Variável que armazena a direção do jogador
+global.gamepaused = false // Variável utilizada para a verificação da pausa do jogo
+global.slime = 0 // Determina qual o slime(personagem) a ser usado
+count = 0
+
+animation_active = false
+
+sprite_index = spr_slimenormal
 
 sprite_idle = spr_slimenormal
 sprite_ataque = spr_slimenormal_ataque_direita

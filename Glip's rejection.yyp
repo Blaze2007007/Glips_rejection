@@ -46,7 +46,6 @@
   },
   "name":"Glip's rejection",
   "resources":[
-    {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
     {"id":{"name":"obj_bg_inicio","path":"objects/obj_bg_inicio/obj_bg_inicio.yy",},},
     {"id":{"name":"obj_bg","path":"objects/obj_bg/obj_bg.yy",},},
     {"id":{"name":"obj_boomba","path":"objects/obj_boomba/obj_boomba.yy",},},
