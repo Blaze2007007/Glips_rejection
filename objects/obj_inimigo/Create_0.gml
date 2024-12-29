@@ -13,6 +13,7 @@ pode_atacar = true // Definir a variável "pode_atacar" como true (usada para de
 sprite_idle = spr_hollow_r // Definir o sprite "Idle" do inimigo
 global.vida_inimigo = enemy_hp // Definir vida do inimigo para verificações nos ataques
 facing = 0
+dir = 0
 global.count = 0
 
 enum ENEMYSTATES // Definir o enumerador com todos os estados do inimigo

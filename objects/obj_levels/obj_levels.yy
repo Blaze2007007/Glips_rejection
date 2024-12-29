@@ -1,9 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_virar1",
-  "eventList":[],
+  "%Name":"obj_levels",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_virar1",
+  "name":"obj_levels",
   "overriddenProperties":[],
   "parent":{
     "name":"grp_interacao",
@@ -28,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_clicavel",
-    "path":"sprites/spr_clicavel/spr_clicavel.yy",
+    "name":"spr_levels",
+    "path":"sprites/spr_levels/spr_levels.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

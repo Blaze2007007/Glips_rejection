@@ -1,15 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_playerchecker",
+  "%Name":"obj_login",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_playerchecker",
+  "name":"obj_login",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"grp_interacao",
+    "path":"folders/Objects/grp_interacao.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_playerchecker",
-    "path":"sprites/spr_playerchecker/spr_playerchecker.yy",
+    "name":"spr_login",
+    "path":"sprites/spr_login/spr_login.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

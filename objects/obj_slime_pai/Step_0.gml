@@ -5,6 +5,11 @@ var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(
 var _ataque = keyboard_check_pressed(ord("E"))
 mapats = layer_tilemap_get_id("Tiles_2")
 
+player_data.vida = global.vida
+player_data.pontos = global.pontos
+player_data.posicao = [x,y]
+player_data.slime_atual = global.slime
+
 if(inmenu)
 {
 	global.gamepaused = true
@@ -206,7 +211,7 @@ switch(state)
 		if(instance_exists(obj_drop))
 		{
 			count ++
-			if(count == 90)
+			if(count >= 90)
 			{
 				var _drops = ds_list_create()
 				var _inst = instance_place_list(x,y,obj_drop,_drops,false)
@@ -218,6 +223,10 @@ switch(state)
 						instance_destroy(_drops[| _i])
 						global.pontos ++
 					}
+				}
+				if(ds_list_empty(_drops))
+				{
+					count = 0
 				}
 				ds_list_destroy(_drops)
 			}
@@ -252,7 +261,7 @@ switch(state)
 		
 		    // Stop the animation at the last frame
 		    if (image_index >= image_number - 1) {
-		        image_speed = 0;          // Stop animation
+		        sprite_index = sprite_idle;          // Stop animation
 		        animation_active = false; // Disable animation
 		    }
 		}

@@ -24,7 +24,6 @@ enum STATES
 	IDLE,
 	MOVING,
 	MENU,
-	CLIMBING,
 	ATTACKING,
 	HIT,
 	DEAD
@@ -38,3 +37,13 @@ global.pontos = 0
 //true = direita e false = esquerda
 last_dir = false
 dano = 5
+
+player_data = {
+	nivel: 0,
+	vida: 3,
+	pontos: 0,
+	posicao: [0, 0], // Posição padrão com dois valores
+	slime_atual: 0
+};
+		
+load_player_data()

@@ -1,9 +1,6 @@
 draw_self() // Desenhar o inimigo
 draw_healthbar(x-10,y-10,x+50,y -15,enemy_hp,c_green,c_green,c_red,0,true,true) // Desenhar a barra de vida do inimigo
 
-draw_text(x,y - 20,facing)
-draw_text(x,y - 40,global.vida_inimigo)
-
 if(keyboard_check(ord("Z"))) // Desenhar o círculo de proximidade do estado alerta
 {
 	draw_set_color(c_orange)
