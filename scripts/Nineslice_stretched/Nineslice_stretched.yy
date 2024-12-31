@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scpt_save_player_data",
+  "%Name":"Nineslice_stretched",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scpt_save_player_data",
+  "name":"Nineslice_stretched",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

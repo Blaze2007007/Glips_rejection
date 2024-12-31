@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scpt_load_player_data",
+  "%Name":"save_player_data",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scpt_load_player_data",
+  "name":"save_player_data",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

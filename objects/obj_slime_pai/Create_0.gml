@@ -45,5 +45,8 @@ player_data = {
 	posicao: [0, 0], // Posição padrão com dois valores
 	slime_atual: 0
 };
-		
+
+#macro Resolution_W 800
+#macro Resolution_H 500
+
 load_player_data()
