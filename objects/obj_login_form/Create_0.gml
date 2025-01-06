@@ -9,8 +9,9 @@ x1_target = Resolution_W/Resolution_W + 30
 x2_target = Resolution_W - 30
 
 lerp_progress = 0
-text_progress = 0
 
-default_message = "AAAAAAAAAAAAHHHHHHHHHHHHHH"
 background = 0
+
 display_set_gui_size(Resolution_W,Resolution_H)
+
+

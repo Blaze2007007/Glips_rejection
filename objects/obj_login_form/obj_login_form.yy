@@ -1,12 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_vida",
+  "%Name":"obj_login_form",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_vida",
+  "name":"obj_login_form",
   "overriddenProperties":[],
   "parent":{
     "name":"grp_interacao",
@@ -31,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_vida",
-    "path":"sprites/spr_vida/spr_vida.yy",
+    "name":"spr_caixa_de_dialogo",
+    "path":"sprites/spr_caixa_de_dialogo/spr_caixa_de_dialogo.yy",
   },
   "spriteMaskId":null,
   "visible":true,

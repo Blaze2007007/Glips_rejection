@@ -1,4 +1,4 @@
-lerp_progress = ( 1 - lerp_progress ) / 50
+lerp_progress = ( 1 - lerp_progress ) / 40
 
 text_progress += global.text_speed
 

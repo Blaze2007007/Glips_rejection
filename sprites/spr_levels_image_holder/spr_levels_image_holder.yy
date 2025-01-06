@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_fragmentos_de_astrolith",
+  "%Name":"spr_levels_image_holder",
   "bboxMode":0,
-  "bbox_bottom":45,
+  "bbox_bottom":75,
   "bbox_left":0,
-  "bbox_right":19,
+  "bbox_right":75,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,17 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"3c23066a-0fd3-4eed-be50-d43776d9e931","name":"3c23066a-0fd3-4eed-be50-d43776d9e931","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e4cc7505-cf8f-4493-bfce-d4dc7c00b86a","name":"e4cc7505-cf8f-4493-bfce-d4dc7c00b86a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c756c45a-bc1e-48b6-96d7-59df9b83c8cd","name":"c756c45a-bc1e-48b6-96d7-59df9b83c8cd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
-  "gridX":0,
-  "gridY":0,
-  "height":46,
+  "gridX":19,
+  "gridY":19,
+  "height":76,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"692fbd4f-81fe-4827-8b49-b319a7687a21","blendMode":0,"displayName":"default","isLocked":false,"name":"692fbd4f-81fe-4827-8b49-b319a7687a21","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"98a238ab-1a09-4c8b-a5af-87511f1420e8","blendMode":0,"displayName":"default","isLocked":false,"name":"98a238ab-1a09-4c8b-a5af-87511f1420e8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_fragmentos_de_astrolith",
+  "name":"spr_levels_image_holder",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +34,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_fragmentos_de_astrolith",
+    "%Name":"spr_levels_image_holder",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -49,7 +50,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":2.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -57,7 +58,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_fragmentos_de_astrolith",
+    "name":"spr_levels_image_holder",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +70,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3c23066a-0fd3-4eed-be50-d43776d9e931","path":"sprites/spr_fragmentos_de_astrolith/spr_fragmentos_de_astrolith.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"02dd6e04-0816-47bb-85a8-82c49e99c69f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e4cc7505-cf8f-4493-bfce-d4dc7c00b86a","path":"sprites/spr_levels_image_holder/spr_levels_image_holder.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"b79d7bfc-a01f-43a3-9f79-e924398cb0ae","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c756c45a-bc1e-48b6-96d7-59df9b83c8cd","path":"sprites/spr_levels_image_holder/spr_levels_image_holder.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"72b223d6-f231-4d56-9803-be9c3a7d2b5e","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +90,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":20,
+  "width":76,
 }

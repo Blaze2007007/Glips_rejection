@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_fragmentos_de_astrolith",
+  "%Name":"spr_caixa_de_texto",
   "bboxMode":0,
-  "bbox_bottom":45,
+  "bbox_bottom":16,
   "bbox_left":0,
-  "bbox_right":19,
+  "bbox_right":63,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"3c23066a-0fd3-4eed-be50-d43776d9e931","name":"3c23066a-0fd3-4eed-be50-d43776d9e931","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"789c4c9c-eb6b-4f74-8bfd-a4d9a42b320c","name":"789c4c9c-eb6b-4f74-8bfd-a4d9a42b320c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":46,
+  "height":17,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"692fbd4f-81fe-4827-8b49-b319a7687a21","blendMode":0,"displayName":"default","isLocked":false,"name":"692fbd4f-81fe-4827-8b49-b319a7687a21","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"732b8fdf-c567-42ec-874c-f4af67d3cacd","blendMode":0,"displayName":"default","isLocked":false,"name":"732b8fdf-c567-42ec-874c-f4af67d3cacd","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_fragmentos_de_astrolith",
+  "name":"spr_caixa_de_texto",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_fragmentos_de_astrolith",
+    "%Name":"spr_caixa_de_texto",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_fragmentos_de_astrolith",
+    "name":"spr_caixa_de_texto",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3c23066a-0fd3-4eed-be50-d43776d9e931","path":"sprites/spr_fragmentos_de_astrolith/spr_fragmentos_de_astrolith.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"02dd6e04-0816-47bb-85a8-82c49e99c69f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"789c4c9c-eb6b-4f74-8bfd-a4d9a42b320c","path":"sprites/spr_caixa_de_texto/spr_caixa_de_texto.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"355fbfbf-0544-432a-a3b9-21e537a94ec3","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":20,
+  "width":64,
 }

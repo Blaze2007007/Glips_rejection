@@ -19,26 +19,25 @@ function Nineslice_stretched()
 	// MIDDLE
 	draw_sprite_part_ext(argument0,_index,_size, _size, 1, 1,_x1+_size,_y1+_size,_W-(_size*2),_H-(_size*2),c_white,1);
 	
-	
-	// CORNERS
-	//top left
-	draw_sprite_part(argument0,_index,0,0,_size,_size,_x1,_y1)
-	//top right
-	draw_sprite_part(argument0,_index,_size*2,0,_size,_size,_x1+_W,_y1)
-	//bottom left
-	draw_sprite_part(argument0,_index,0,_size*2,_size,_size,_x1,_y1+_H-_size)
-	//bottom right
-	draw_sprite_part(argument0,_index,_size*2,_size*2,_size,_size,_x1+_W-_size,_y1+_H-_size)
-	
-	
-	
 	//EDGES
 	//left edge
 	draw_sprite_part_ext(argument0,_index,0,_size,_size,1,_x1,_y1+_size,1,_H-(_size*2),c_white,1)
 	//right edge
 	draw_sprite_part_ext(argument0,_index,_size*2,_size,_size,1,_x1+_W-_size,_y1+_size,1,_H-(_size*2),c_white,1)
 	//top edge
-	draw_sprite_part_ext(argument0,_index,_size,0,1,_size,_x1 +_size,_y1,_W-(_size*2),1,c_white,1)
+	draw_sprite_part_ext(argument0,_index,_size,0,1,_size,_x1 +_size,_y1+_H-(_size),_W-(_size*2),1,c_white,1)
 	//bottom edge
-	draw_sprite_part_ext(argument0,_index,_size,_size*2,1,_size,_x1+_size,_y1+_H-(_size),_W-(_size*2),1,c_white,1)
+	draw_sprite_part_ext(argument0,_index,_size,_size*2,1,_size,_x1+_size,_y1,_W-(_size*2),1,c_white,1)
+	
+	////////////##///////////////
+	// CORNERS
+	//top left
+	draw_sprite_part(argument0,_index,0,0,_size,_size,_x1,_y1+_H-_size)
+	//top right
+	draw_sprite_part(argument0,_index,_size*2,0,_size,_size,_x1+_W-_size,_y1+_H-_size)
+	//bottom left
+	draw_sprite_part(argument0,_index,0,_size*2,_size,_size,_x1,_y1)
+	//bottom right
+	draw_sprite_part(argument0,_index,_size*2,_size*2,_size,_size,_x1+_W-_size,_y1)
+	////////////##///////////////
 }

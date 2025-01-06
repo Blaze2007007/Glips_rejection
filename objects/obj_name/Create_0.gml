@@ -1,0 +1,2 @@
+str = ""
+sel = true
