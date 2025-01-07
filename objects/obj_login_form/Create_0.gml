@@ -13,3 +13,8 @@ background = 0
 display_set_gui_size(Resolution_W,Resolution_H)
 
 
+login_data = 
+{
+	username: "",
+	password: ""
+};

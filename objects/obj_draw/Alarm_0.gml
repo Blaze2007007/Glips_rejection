@@ -1,4 +1,4 @@
-if(typing_str = "")
+if(typing_str == "")
 {
 	typing_str = "|"
 }
