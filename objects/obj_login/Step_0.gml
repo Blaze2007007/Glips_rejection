@@ -19,14 +19,8 @@ if(keyboard_check_pressed(vk_tab) && global.opcao_escolhida == 1)
 	image_xscale = lerp(image_xscale,1.5,0.1)
 	image_yscale = lerp(image_yscale,1.5,0.1)
 }
-else
-{
-	image_xscale = lerp(image_xscale,2,0.1)
-	image_yscale = lerp(image_yscale,2,0.1)
-}
 if((instance_position(mouse_x, mouse_y, obj_start) || instance_position(mouse_x, mouse_y, obj_levels)) && global.opcao_escolhida == 1)
 {
 	image_xscale = lerp(image_xscale,1.5,0.1)
 	image_yscale = lerp(image_yscale,1.5,0.1)
 }
-
