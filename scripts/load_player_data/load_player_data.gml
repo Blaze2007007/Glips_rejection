@@ -1,14 +1,19 @@
-function load_player_data() {
+function load_player_data() 
+{
     show_debug_message("Função load_player_data chamada");
 
     // Inicializa player_data com valores padrão, caso ainda não tenha sido inicializado
-    if (!variable_global_exists("player_data")) 
+    if (!variable_global_exists("player_data"))
 	{
         player_data = {
-			nivel: 0,
+			nivel: rm_nivel1,
             vida: 3,
             pontos: 0,
-            posicao: [0, 0], // Posição padrão com dois valores
+            posicao:
+			{
+				_x: x,
+				_y: y
+			}, // Posição padrão com dois valores
             slime_atual: 0
         };
     }
@@ -55,10 +60,14 @@ function load_player_data() {
         // Se o arquivo não for encontrado, use valores padrão
         show_debug_message("Arquivo player_data.json não encontrado. Usando valores padrão.");
         player_data = {
-			nivel: 0,
+			nivel: rm_nivel1,
             vida: 3,
             pontos: 0,
-            posicao: [0, 0],
+            posicao:
+			{
+				_x: x,
+				_y: y
+			}, // Posição padrão com dois valores
             slime_atual: 0
         };
     }

@@ -1,10 +1,11 @@
-function save_player_data() {
+function save_player_data() 
+{
     //show_debug_message("Função save_player_data chamada");
 
     // Cria um objeto temporário como cópia de player_data
     var temp_data = player_data; // Usa uma referência direta (simples)
 	
-    temp_data.posicao = posicao;
+    temp_data.posicao = posicao[x,y]
 
     // Converte o objeto temporário para uma string JSON
     var json_data = json_stringify(temp_data);

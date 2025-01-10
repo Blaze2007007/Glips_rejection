@@ -21,7 +21,7 @@ if(keyboard_check_pressed(vk_tab) && global.opcao_escolhida == 0 && !aumentar)
 	image_yscale = lerp(image_yscale,1.5,0.1)
 	aumentar = true
 }
-if((instance_position(mouse_x, mouse_y, obj_login) || instance_position(mouse_x, mouse_y, obj_levels)) && global.opcao_escolhida == 0)
+if(instance_position(mouse_x, mouse_y, obj_levels) && global.opcao_escolhida == 0)
 {
 	image_xscale = lerp(image_xscale,1.5,0.1)
 	image_yscale = lerp(image_yscale,1.5,0.1)

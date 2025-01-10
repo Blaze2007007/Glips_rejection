@@ -31,6 +31,9 @@
     "name":"spr_fragmentos_de_astrolith",
     "path":"sprites/spr_fragmentos_de_astrolith/spr_fragmentos_de_astrolith.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_fragmentos_de_astrolith",
+    "path":"sprites/spr_fragmentos_de_astrolith/spr_fragmentos_de_astrolith.yy",
+  },
   "visible":true,
 }

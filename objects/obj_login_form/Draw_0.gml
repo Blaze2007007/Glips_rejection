@@ -1,5 +1,0 @@
-Nineslice_stretched(spr_caixa_de_dialogo,x1,y1,x2,y2,background)
-draw_set_font(f_Text)
-draw_set_halign(fa_center)
-draw_set_valign(fa_top)
-draw_set_color(c_black)

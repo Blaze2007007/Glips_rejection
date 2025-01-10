@@ -404,15 +404,17 @@ switch(state)
 			for(var _i;_i < enemy_drops;_i++)
 			{
 				var _random_pos = random(100)
-				var _esq_dir = choose(0,1)
-				switch(_esq_dir)
+				var _esc_dir = choose(0,1)
+				switch(_esc_dir)
 				{
 					case 0:
 						_random_pos = sign(_random_pos)
 					case 1:
 						break
 				}
-				instance_create_layer(x + _random_pos,y - 20,layer,obj_drop)
+				instance_create_layer(x + _random_pos,y,layer,obj_drop)
+				obj_drop.image_xscale = 0.5
+				obj_drop.image_yscale = 0.5
 			}
 		}
 		else
@@ -421,3 +423,4 @@ switch(state)
 		}
 	#endregion
 }
+show_debug_message(enemy_hp)
