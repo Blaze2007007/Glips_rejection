@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_quit",
+  "%Name":"obj_exit",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_quit",
+  "name":"obj_exit",
   "overriddenProperties":[],
   "parent":{
     "name":"grp_interacao",
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_quit",
-    "path":"sprites/spr_quit/spr_quit.yy",
+    "name":"spr_exit",
+    "path":"sprites/spr_exit/spr_exit.yy",
   },
   "spriteMaskId":null,
   "visible":true,

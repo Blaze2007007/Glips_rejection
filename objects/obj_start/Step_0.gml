@@ -9,6 +9,7 @@ if((keyboard_check_pressed(vk_enter)|| (mouse_check_button_pressed(mb_left))) &&
 	else
 	{
 		instance_create_layer(player_data.posicao._x,player_data.posicao._y,layer,obj_slime_pai)
+		show_debug_message("acontece")
 	}
 }
 if(instance_position(mouse_x, mouse_y, obj_start) or global.opcao_escolhida == 0)
@@ -29,7 +30,7 @@ if(keyboard_check_pressed(vk_tab) && global.opcao_escolhida == 0 && !aumentar)
 	image_yscale = lerp(image_yscale,1.5,0.1)
 	aumentar = true
 }
-if(instance_position(mouse_x, mouse_y, obj_levels) && global.opcao_escolhida == 0)
+if(instance_position(mouse_x, mouse_y, obj_levels) or instance_position(mouse_x, mouse_y, obj_exit) && global.opcao_escolhida == 0)
 {
 	image_xscale = lerp(image_xscale,1.5,0.1)
 	image_yscale = lerp(image_yscale,1.5,0.1)
@@ -40,24 +41,3 @@ if(aumentar && global.opcao_escolhida == 0)
 	image_xscale = lerp(image_xscale,2,0.1)
 	image_yscale = lerp(image_yscale,2,0.1)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//else if(keyboard_check_pressed(vk_tab) && clicavel)
-//{
-//	clicavel = false
-//	obj_login.clicavel = true
-//	image_xscale = lerp(image_xscale,1,0.1)
-//	image_yscale = lerp(image_yscale,1,0.1)
-//}

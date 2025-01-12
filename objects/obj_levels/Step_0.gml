@@ -15,12 +15,11 @@ else
 }
 if(keyboard_check_pressed(vk_tab) && global.opcao_escolhida == 1)
 {
-	global.opcao_escolhida = 0
+	global.opcao_escolhida = 2
 	image_xscale = lerp(image_xscale,1.5,0.1)
 	image_yscale = lerp(image_yscale,1.5,0.1)
-	obj_start.aumentar = true
 }
-if(instance_position(mouse_x, mouse_y, obj_start) && global.opcao_escolhida == 1)
+if(instance_position(mouse_x, mouse_y, obj_start) or instance_position(mouse_x, mouse_y, obj_exit) && global.opcao_escolhida == 1)
 {
 	image_xscale = lerp(image_xscale,1.5,0.1)
 	image_yscale = lerp(image_yscale,1.5,0.1)
