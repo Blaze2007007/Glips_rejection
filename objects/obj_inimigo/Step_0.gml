@@ -423,4 +423,3 @@ switch(state)
 		}
 	#endregion
 }
-show_debug_message(enemy_hp)

@@ -1,26 +1,8 @@
-function save_player_data() 
+function save_player_data(dados,ficheiro)
 {
-    //show_debug_message("Função save_player_data chamada");
-
-    // Cria um objeto temporário como cópia de player_data
-    var temp_data = player_data; // Usa uma referência direta (simples)
-	
-    temp_data.posicao = posicao[x,y]
-
-    // Converte o objeto temporário para uma string JSON
-    var json_data = json_stringify(temp_data);
-    show_debug_message("JSON gerado para salvar: " + json_data);
-
-    // Salva os dados no arquivo
-    var file_path = working_directory + "player_data.json";
-    var file = file_text_open_write(file_path);
-    if (file == -1) {
-        show_debug_message("Erro ao abrir o arquivo para escrita!");
-        return;
-    }
-
-    file_text_write_string(file, json_data);
-    file_text_close(file);
-
-    //show_debug_message("Arquivo salvo com sucesso em: " + file_path);
+	var arquivo = working_directory + ficheiro // Cria um arquivo para armazenamento dos dados do utilizador
+    var dados_json = json_stringify(dados); // Cria uma variável que armazena os dados do utilizador
+    var file = file_text_open_write(arquivo); // Cria uma variável para escrita no ficheiro
+    file_text_write_string(file, dados_json); // Escreve no ficheiro os dados do utilizador
+    file_text_close(file); // Fecha o ficheiro de armazenamento de dados do utilizador 
 }

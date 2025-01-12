@@ -1,77 +1,16 @@
-function load_player_data() 
+function load_player_data(arquivo) 
 {
-    show_debug_message("Função load_player_data chamada");
-
-    // Inicializa player_data com valores padrão, caso ainda não tenha sido inicializado
-    if (!variable_global_exists("player_data"))
-	{
-        player_data = {
-			nivel: rm_nivel1,
-            vida: 3,
-            pontos: 0,
-            posicao:
-			{
-				_x: x,
-				_y: y
-			}, // Posição padrão com dois valores
-            slime_atual: 0
-        };
-    }
-
-    // Verifica se o arquivo existe
-    if (file_exists("player_data.json")) 
-	{
-        var file = file_text_open_read("player_data.json");
-        var json_string = file_text_read_string(file);
-        file_text_close(file);
-
-        var loaded_data = json_decode(json_string);
-
-        // Verifica se a estrutura carregada é válida
-        if (is_struct(loaded_data)) {
-            if (!is_undefined(loaded_data.vida)) 
-			{
-                player_data.vida = real(loaded_data.vida);
-            }
-            if (!is_undefined(loaded_data.pontos)) 
-			{
-                player_data.pontos = real(loaded_data.pontos);
-            }
-            if (is_array(loaded_data.posicao) && array_length(loaded_data.posicao) == 2) 
-			{
-                player_data.posicao = loaded_data.posicao;
-            } 
-			else 
-			{
-                player_data.posicao = [0, 0];
-            }
-            if (!is_undefined(loaded_data.slime_atual)) 
-			{
-                player_data.slime_atual = real(loaded_data.slime_atual);
-            }
-        } 
-		else 
-		{
-            show_debug_message("Erro: O arquivo JSON não contém uma estrutura válida.");
-        }
+	//Se o ficheiro existir crião-se duas variáveis temporarias para leitura do ficheiro
+     if (file_exists(arquivo)) {
+        var file = file_text_open_read(arquivo); // Abre o ficheiro para leitura do mesmo
+        var dados_json = file_text_read_string(file); // Lê e armazena os dados do ficheiro aberto previamente
+        file_text_close(file); // Feicha o ficheiro depois de o ler
+		show_debug_message(dados_json) // Mostra uma mensagem com os dados recolhidos do ficheiro
+        return json_parse(dados_json); // Retorna a struct carregada
     } 
-	else 
+	else // Se o ficheiro não existir mostra-se uma mensagem a avisar que o mesmo não foi encontrado 
 	{
-        // Se o arquivo não for encontrado, use valores padrão
-        show_debug_message("Arquivo player_data.json não encontrado. Usando valores padrão.");
-        player_data = {
-			nivel: rm_nivel1,
-            vida: 3,
-            pontos: 0,
-            posicao:
-			{
-				_x: x,
-				_y: y
-			}, // Posição padrão com dois valores
-            slime_atual: 0
-        };
+        show_message("Arquivo JSON não encontrado!");
+        return null; // Retorna null se o arquivo não existir
     }
-
-    // Depois de carregar ou inicializar, verifica se a estrutura está válida
-    show_debug_message("player_data carregado: " + string(player_data));
 }

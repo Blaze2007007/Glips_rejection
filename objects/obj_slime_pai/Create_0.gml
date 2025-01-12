@@ -38,15 +38,17 @@ global.pontos = 0
 last_dir = false
 dano = 5
 
-player_data = {
-	nivel: 0,
-	vida: 3,
-	pontos: 0,
-	posicao: [0, 0], // Posição padrão com dois valores
-	slime_atual: 0
-};
+player_data = Innit_player_data()
+
+arquivo_dados = "jogador_dados.json";
+// Carrega os dados se o arquivo existir
+if (file_exists(arquivo_dados)) {
+    var dados_carregados = load_player_data(arquivo_dados);
+    if (dados_carregados != "") 
+	{
+        meus_dados = dados_carregados;
+    }
+}
 
 #macro Resolution_W 800
 #macro Resolution_H 500
-
-load_player_data()
