@@ -18,17 +18,17 @@ if(room == rm_inicio)
 {
 	player_data.nivel = "rm_inicio"
 }
-if(room == rm_nivel1)
+if(room == rm_nivel1 && player_data.numero_niveis < 1)
 {
 	player_data.nivel = "rm_nivel1"
 	player_data.numero_niveis = int64(1)
 }
-if(room == rm_nivel2)
+if(room == rm_nivel2 && player_data.numero_niveis < 2)
 {
 	player_data.nivel = "rm_nivel2"
 	player_data.numero_niveis = int64(2)
 }
-if(room == rm_nivel3)
+if(room == rm_nivel3 && player_data.numero_niveis < 3)
 {
 	player_data.nivel = "rm_nivel3"
 	player_data.numero_niveis = int64(3)

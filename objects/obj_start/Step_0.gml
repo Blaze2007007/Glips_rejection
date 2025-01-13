@@ -8,8 +8,8 @@ if((keyboard_check_pressed(vk_enter)|| (mouse_check_button_pressed(mb_left))) &&
 	}
 	else
 	{
-		instance_create_layer(player_data.posicao._x,player_data.posicao._y,layer,obj_slime_pai)
 		show_debug_message("acontece")
+		instance_create_layer(player_data.posicao._x,player_data.posicao._y,layer,obj_slime_pai)
 	}
 }
 if(instance_position(mouse_x, mouse_y, obj_start) or global.opcao_escolhida == 0)
