@@ -38,17 +38,21 @@ global.pontos = 0
 last_dir = false
 dano = 5
 
-player_data = Innit_player_data()
+global.player_data = Innit_player_data()
 
 arquivo_dados = "jogador_dados.json";
 // Carrega os dados se o arquivo existir
-if (file_exists(arquivo_dados)) {
+if (file_exists(arquivo_dados)) 
+{
     var dados_carregados = load_player_data(arquivo_dados);
     if (dados_carregados != "") 
 	{
-        meus_dados = dados_carregados;
+        global.player_data = dados_carregados;
     }
 }
+
+load_player_data(arquivo_dados)
+save_player_data(global.player_data,arquivo_dados)
 
 #macro Resolution_W 800
 #macro Resolution_H 500

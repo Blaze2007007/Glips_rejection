@@ -6,32 +6,32 @@ var _ataque = keyboard_check_pressed(ord("E"))
 mapats = layer_tilemap_get_id("Tiles_2")
 
 load_player_data(arquivo_dados)
-save_player_data(player_data,arquivo_dados)
+save_player_data(global.player_data,arquivo_dados)
 
-player_data.vida = int64(global.vida)
-player_data.pontos = int64(global.pontos)
-player_data.posicao._x = int64(x)
-player_data.posicao._y = int64(y)
-player_data.slime_atual = int64(global.slime)
+global.player_data.vida = int64(global.vida)
+global.player_data.pontos = int64(global.pontos)
+global.player_data.posicao._x = int64(x)
+global.player_data.posicao._y = int64(y)
+global.player_data.slime_atual = int64(global.slime)
 
-if(room == rm_inicio)
+if(room == rm_nivel1)
 {
-	player_data.nivel = "rm_inicio"
+	global.player_data.nivel = "rm_nivel1"
+	global.player_data.numero_niveis = int64(1)
 }
-if(room == rm_nivel1 && player_data.numero_niveis < 1)
+else if(room == rm_nivel2)
 {
-	player_data.nivel = "rm_nivel1"
-	player_data.numero_niveis = int64(1)
+	global.player_data.nivel = "rm_nivel2"
+	global.player_data.numero_niveis = int64(2)
 }
-if(room == rm_nivel2 && player_data.numero_niveis < 2)
+else if(room == rm_nivel3)
 {
-	player_data.nivel = "rm_nivel2"
-	player_data.numero_niveis = int64(2)
+	global.player_data.nivel = "rm_nivel3"
+	global.player_data.numero_niveis = int64(3)
 }
-if(room == rm_nivel3 && player_data.numero_niveis < 3)
+else
 {
-	player_data.nivel = "rm_nivel3"
-	player_data.numero_niveis = int64(3)
+	show_message("sala")
 }
 
 if(inmenu)

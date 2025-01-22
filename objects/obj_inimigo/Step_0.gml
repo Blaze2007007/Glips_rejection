@@ -24,14 +24,18 @@ switch(state)
 		switch(opcao) // Dependendo da escolha do programa (0, 1 ou 2) o inimigo realiza as seguintes ações
 		{
 			case 0: // Mover-se para a esquerda
-			
+			#region
 			if(!collision_circle(x,y,224,obj_slime_pai,false,false)) // Se o jogador não estiver dentro do círculo definido realiza a seguinte ação
 			{
 				movex += 1 // Incrementar a variável do movimento horizontal
 				x -= movex // Mover o inimigo de acordo com a variável do movimento horizontal
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
-					vely = 0 // Atribuir o valor 0 à velocidade vertical
+					vely = 0
+					if(collision_rectangle(bbox_left-10,y+25,bbox_left,y,_mapats,false,false))
+					{
+						vely = -12 * grv
+					}
 				}
 				else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
 				{
@@ -40,7 +44,7 @@ switch(state)
 				}
 				
 				y += vely / 2 // Mover o inimigo de acordo com a variável do movimento vertical
-				
+				#region //Verificação de colisões
 				for(var _i = 0; _i < 1000; _i++) // verificação de colisões com o mapa para que o inimigo não atravesse paredes ao mover-se
 					{
 						//Direita
@@ -96,15 +100,22 @@ switch(state)
 							break
 						}
 					}
+					#endregion
 			}
+			#endregion
 			case 1: // Movimento para a Direita
+			#region
 			if(!collision_circle(x,y,224,obj_slime_pai,false,false)) // Se o jogador não estiver dentro do círculo definido realiza a seguinte ação
 			{
 				movex -= 1 // Decrementar a variável do movimento horizontal
 				x -= movex // Mover o inimigo de acordo com a variável do movimento horizontal
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
-					vely = 0 // Atribuir o valor 0 à velocidade vertical
+					vely = 0
+					if(collision_rectangle(bbox_right+10,y+25,bbox_right,y,_mapats,false,false))
+					{
+						vely = -12 * grv
+					}
 				}
 				else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
 				{
@@ -113,7 +124,7 @@ switch(state)
 				}
 				
 				y += vely / 2 // Mover o inimigo de acordo com a variável do movimento vertical
-				
+				#region //Verificação de colisões
 					for(var _i = 0; _i < 1000; _i++) // verificação de colisões com o mapa para que o inimigo não atravesse paredes ao mover-se
 					{
 						//Direita
@@ -169,12 +180,19 @@ switch(state)
 							break
 						}
 					}
+					#endregion
 			}
+			#endregion
 			case 2: // Ficar parado
+			#region
 				movex = 0 // Atribuir o valor 0 à variável "movex" para o inimigo ficar parado
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
-					vely = 0 // Atribuir o valor 0 à velocidade vertical
+					vely = 0
+					if(collision_rectangle(bbox_left-10,y+25,bbox_left,y,_mapats,false,false))
+					{
+						vely = -12 * grv
+					}
 				}
 				else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
 				{
@@ -183,7 +201,7 @@ switch(state)
 				}
 				
 				y += vely / 2 // Mover o inimigo de acordo com a variável do movimento vertical
-				
+				#region //Verificação de colisões
 				for(var _i = 0; _i < 1000; _i++) // verificação de colisões com o mapa para que o inimigo não atravesse paredes ao mover-se
 				{
 					//Direita
@@ -239,6 +257,8 @@ switch(state)
 						break
 					}
 				}
+				#endregion
+			#endregion
 		}
 	//verificação de proximidade
 	if(collision_circle(x,y,224,obj_slime_pai,false,false)) // Se o jogador se aproximar do inimigo o suficiente o inimigo passa a perseguir o jogador
@@ -311,6 +331,10 @@ switch(state)
 					y += _i
 					break
 				}
+			}
+			if(collision_rectangle(bbox_left-20,y+25,bbox_left,y,_mapats,false,false) or collision_rectangle(bbox_right+20,y+25,bbox_right,y,_mapats,false,false))
+			{
+				vely = -12 * grv
 			}
 		}
 		else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
@@ -396,15 +420,13 @@ switch(state)
 	#endregion
 	case ENEMYSTATES.DEAD: //ESTADO 4 (estado da morte do inimigo)
 	#region
-		if(global.vida_inimigo == 0)
+		if(global.vida_inimigo == 0) // Se a vida do inimigo for igual a zero(morrer), criam-se instancias do objeto drop perto do inimigo já morto, as que, ao serem apanhadas dão pontos
 		{
-			movex = 0
-			x += movex
-			instance_destroy(self)
-			for(var _i;_i < enemy_drops;_i++)
+			instance_destroy(self) //Apagar inimigo
+			for(var _i;_i < enemy_drops;_i++)//Ciclo para criação das instâncias do objeto drop
 			{
-				var _random_pos = random(100)
-				var _esc_dir = choose(0,1)
+				var _random_pos = random(100) // definição da posição dos drops
+				var _esc_dir = choose(0,1) // Direção dos drops
 				switch(_esc_dir)
 				{
 					case 0:
@@ -412,12 +434,12 @@ switch(state)
 					case 1:
 						break
 				}
-				instance_create_layer(x + _random_pos,y,layer,obj_drop)
-				obj_drop.image_xscale = 0.5
+				instance_create_layer(x + _random_pos,y,layer,obj_drop) // criação dos drops
+				obj_drop.image_xscale = 0.5 //Redimencionar drops
 				obj_drop.image_yscale = 0.5
 			}
 		}
-		else
+		else //Se a vida do inimigo não for igual a zero passa para o estado idle do inimigo
 		{
 			state = STATES.IDLE
 		}
