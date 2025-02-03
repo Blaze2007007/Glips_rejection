@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_boomba_esplosao_direita",
+  "%Name":"spr_boomba_ataque_direita",
   "bboxMode":0,
   "bbox_bottom":47,
   "bbox_left":2,
@@ -22,9 +22,9 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"4b4503c2-8a62-4c07-8f43-00ea15af2ace","blendMode":0,"displayName":"default","isLocked":false,"name":"4b4503c2-8a62-4c07-8f43-00ea15af2ace","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_boomba_esplosao_direita",
+  "name":"spr_boomba_ataque_direita",
   "nineSlice":null,
-  "origin":0,
+  "origin":7,
   "parent":{
     "name":"grp_boomba",
     "path":"folders/Sprites/grp_inimigos/grp_boomba.yy",
@@ -34,7 +34,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_boomba_esplosao_direita",
+    "%Name":"spr_boomba_ataque_direita",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -58,7 +58,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_boomba_esplosao_direita",
+    "name":"spr_boomba_ataque_direita",
     "playback":1,
     "playbackSpeed":3.0,
     "playbackSpeedType":0,
@@ -70,17 +70,17 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fa69349c-88a8-4f10-91bb-f8e8feab81b7","path":"sprites/spr_boomba_esplosao_direita/spr_boomba_esplosao_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fa69349c-88a8-4f10-91bb-f8e8feab81b7","path":"sprites/spr_boomba_ataque_direita/spr_boomba_ataque_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"79722f44-1c74-46ac-b196-05e6bda16be9","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"38dcdc63-98e4-47bd-8984-efe86d00bc3c","path":"sprites/spr_boomba_esplosao_direita/spr_boomba_esplosao_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"38dcdc63-98e4-47bd-8984-efe86d00bc3c","path":"sprites/spr_boomba_ataque_direita/spr_boomba_ataque_direita.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"7811a375-1813-49f1-8a1b-6faf7c25f91e","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":36,
+    "yorigin":48,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

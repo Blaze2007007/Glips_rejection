@@ -22,7 +22,12 @@ else
 if((keyboard_check_pressed(vk_enter) || (mouse_check_button_pressed(mb_left))) && (instance_position(mouse_x, mouse_y, obj_levels_image_holder_1) || global.escolha == 1) && image_index == 2)
 {
     room_goto(rm_nivel2)
-	instance_create_depth(169,641,depth,obj_slime_pai)
+	instance_activate_object(obj_slime_pai)
+	if(instance_exists(obj_slime_pai))
+	{
+		obj_slime_pai.x = 165
+		obj_slime_pai.y = 630
+	}
 }
 if(instance_position(mouse_x, mouse_y, obj_levels_image_holder_1) or global.escolha == 1)
 {

@@ -29,10 +29,6 @@ else if(room == rm_nivel3)
 	global.player_data.nivel = "rm_nivel3"
 	global.player_data.numero_niveis = int64(3)
 }
-else
-{
-	show_message("sala")
-}
 
 if(inmenu)
 {
@@ -122,9 +118,9 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
-		if(_ataque)
+		if(_ataque && animation_active)
 		{
-			state = STATES.ATTACKING
+				state = STATES.ATTACKING
 		}
 		else
 		{
@@ -142,7 +138,7 @@ switch(state)
 					for(var _i = 0; _i < _inst; _i++)
 					{
 						instance_destroy(_drops[| _i])
-						global.pontos ++
+						global.pontos = global.pontos + 10
 					}
 				}
 				ds_list_destroy(_drops)
@@ -162,8 +158,9 @@ switch(state)
 		{
 			sprite_index = sprite_idle
 		}
-		if(_ataque)
+		if(_ataque && animation_active)
 		{
+				
 			state = STATES.ATTACKING
 		}
 		else
@@ -276,31 +273,38 @@ switch(state)
 	{
 		sprite_index = sprite_ataque
 		animation_active = true; // Activate the animation
-		image_index = 0;         // Reset animation to the first frame
-
+	image_speed = 1; // Ensure the animation is running at the normal speed
 		// Play animation only if it's active
 		if (animation_active) 
 		{
-		    image_speed = 1; // Ensure the animation is running at the normal speed
-		
 		    // Stop the animation at the last frame
-		    if (image_index >= image_number - 1) {
-		        sprite_index = sprite_idle;          // Stop animation
-		        animation_active = false; // Disable animation
+		    if (image_index >= image_number - 1) 
+			{
+				image_index = 0
+		        sprite_index = sprite_idle; // Stop animation
+				animation_active = false
 		    }
-		}
 
+		}
+		else
+		{
+			state = STATES.IDLE
+		}
+	}
+	else
+	{
+		state = STATES.IDLE
 	}
 	
 	#endregion
-	if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
+}
+if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 	{
 		room_goto_next()
 		x = 170
 		y = 600
 		instance_destroy(obj_hollow)
 	}
-}
 if(global.slime == 0)
 {
 	if(!instance_exists(obj_dialogo1))

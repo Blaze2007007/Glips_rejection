@@ -16,6 +16,17 @@ facing = 0
 dir = 0
 global.count = 0
 
+sprite_ini_idle = spr_hollow_r
+sprite_ini_moving = spr_hollow_r
+sprite_ini_ataque = spr_hollow_ataque
+
+if(enemy_id == 1)
+{
+	sprite_ini_idle = spr_boomba
+	sprite_ini_moving = spr_boomba_direita
+	sprite_ini_ataque = spr_boomba_ataque_direita
+}
+
 enum ENEMYSTATES // Definir o enumerador com todos os estados do inimigo
 {
 	IDLE,      // Mover numa direção aleatória ou ficar parado

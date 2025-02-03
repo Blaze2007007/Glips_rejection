@@ -8,7 +8,7 @@ movex = 0
 switch(state)
 {
 	case ENEMYSTATES.IDLE: //ESTADO 0 (estado idle)
-	#region
+ 	#region
 		count1 ++ // Incrementar a variável "count1" (começar o temporizador)
 		
 		if(pode_mudar) // Se o inimigo mode mudar de direção então o programa escolhe um valor aleatório de 0 a 2 e passa a não poder mudar de direção
@@ -29,6 +29,9 @@ switch(state)
 			{
 				movex += 1 // Incrementar a variável do movimento horizontal
 				x -= movex // Mover o inimigo de acordo com a variável do movimento horizontal
+				
+				sprite_index = sprite_ini_moving
+				
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
 					vely = 0
@@ -109,6 +112,9 @@ switch(state)
 			{
 				movex -= 1 // Decrementar a variável do movimento horizontal
 				x -= movex // Mover o inimigo de acordo com a variável do movimento horizontal
+				
+				sprite_index = sprite_ini_moving
+				
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
 					vely = 0
@@ -186,6 +192,7 @@ switch(state)
 			case 2: // Ficar parado
 			#region
 				movex = 0 // Atribuir o valor 0 à variável "movex" para o inimigo ficar parado
+				
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
 					vely = 0
@@ -347,12 +354,14 @@ switch(state)
 		
 		if(dis_from_player > 90) // Se a distância entre o inimigo e o jogador for maior que 90 o inimigo segue o jogador até um certo ponto 
 		{
-			my_dir = point_direction(x,y,obj_slime_pai.x + 30,obj_slime_pai.y) // Definir a direção do inimigo para se aproximar do jogador pela direita
+			sprite_index = sprite_ini_moving
+			my_dir = point_direction(x,y,obj_slime_pai.x + 50,obj_slime_pai.y) // Definir a direção do inimigo para se aproximar do jogador pela direita
 			facing = 1
 		}
 		else if (dis_from_player < 90) // Se a distância entre o inimigo e o jogador for menor que 90 o inimigo segue o jogador até um certo ponto
 		{
-			my_dir = point_direction(x,y,obj_slime_pai.x - 60,obj_slime_pai.y) // Definir a direção do inimigo para se aproximar do jogador pela esquerda
+			sprite_index = sprite_ini_moving
+			my_dir = point_direction(x,y,obj_slime_pai.x - 50,obj_slime_pai.y) // Definir a direção do inimigo para se aproximar do jogador pela esquerda
 			facing = -1
 		}
 		else // Se nenhuma das ações anteriores for verdadeira o codigo continua a verificar as distâncias
@@ -366,7 +375,7 @@ switch(state)
 		
 		move_and_collide(movex,vely,_mapats) // Esta função permite que o jogador se mova enquanto verifica colisões
 		
-		if(place_meeting(x,y,obj_slime_pai)) // Se o inimigo colidir com o jogador o inimigo passa ao estado de ataque
+		if(collision_circle(x,y,32,obj_slime_pai,false,false)) // Se o inimigo colidir com o jogador o inimigo passa ao estado de ataque
 		{
 			state = ENEMYSTATES.ATTACKING // Passar para o estado de ataque
 		}
@@ -385,11 +394,26 @@ switch(state)
 		count2 = 0 // Recomeçar o temporizador
 		pode_atacar = true // Pode voltar a atacar
 	}
-	if(place_meeting(x,y,obj_slime_pai) && pode_atacar && global.vida > 0) // Se estiver a colidir com o jogador, poder atacar e a vida do jogador for maior do que 0, então executa o seguinte codigo
+	if(collision_circle(x,y,32,obj_slime_pai,false,false) && pode_atacar && global.vida > 0) // Se estiver a colidir com o jogador, poder atacar e a vida do jogador for maior do que 0, então executa o seguinte codigo
 	{
+		sprite_index = sprite_ini_ataque
+		image_speed = 1
+		if(image_index < image_number - 1)
+		{
+			sprite_index = sprite_ini_ataque
+		}
+		else
+		{
+			sprite_index = sprite_ini_idle
+		}
 		global.vida -= enemy_damage // Tira vida ao jogador de acordo com o dano do inimigo
 		pode_atacar = false // Não pode atacar até ao temporizador chegar a 180
 		count2 = 0 // Recomeça o temporizador
+	}
+	else
+	{
+		sprite_index = sprite_ini_idle
+		state = ENEMYSTATES.IDLE
 	}
 	#endregion
 	if(collision_circle(x,y,64,obj_slime_pai,false,false) && keyboard_check_pressed(ord("E"))) // Mudança para o estado em que é atacado, se o jogador entrar em colisão com o circulo de ataque e atacar
@@ -435,8 +459,8 @@ switch(state)
 						break
 				}
 				instance_create_layer(x + _random_pos,y,layer,obj_drop) // criação dos drops
-				obj_drop.image_xscale = 0.5 //Redimencionar drops
-				obj_drop.image_yscale = 0.5
+				obj_drop.image_xscale = 0.75 //Redimencionar drops
+				obj_drop.image_yscale = 0.75
 			}
 		}
 		else //Se a vida do inimigo não for igual a zero passa para o estado idle do inimigo

@@ -2,7 +2,7 @@ if(keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space) || (mous
 {
     show_debug_message("Clicado no objeto");
 	room_goto(rm_inicio)
-	instance_destroy(obj_slime_pai)
+	instance_deactivate_object(obj_slime_pai)
 	obj_bg.image_alpha = 0
 	instance_destroy(obj_menu)
 }

@@ -9,7 +9,7 @@
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"enemy_damage","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"enemy_hp","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"5",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"enemy_drops","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"10",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"enemy_drops","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
   ],
   "parent":{
     "name":"grp_Inimigos",

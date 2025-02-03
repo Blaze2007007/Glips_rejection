@@ -31,6 +31,7 @@
     {"$GMObjectProperty":"v1","%Name":"enemy_damage","filters":[],"listItems":[],"multiselect":false,"name":"enemy_damage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"enemy_hp","filters":[],"listItems":[],"multiselect":false,"name":"enemy_hp","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"enemy_drops","filters":[],"listItems":[],"multiselect":false,"name":"enemy_drops","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"enemy_id","filters":[],"listItems":[],"multiselect":false,"name":"enemy_id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

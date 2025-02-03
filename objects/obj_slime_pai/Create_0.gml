@@ -11,6 +11,7 @@ global.slime = 0 // Determina qual o slime(personagem) a ser usado
 count = 0
 
 animation_active = false
+animation_ended = true
 
 sprite_index = spr_slimenormal
 
@@ -37,8 +38,6 @@ global.pontos = 0
 //true = direita e false = esquerda
 last_dir = false
 dano = 5
-
-global.player_data = Innit_player_data()
 
 arquivo_dados = "jogador_dados.json";
 // Carrega os dados se o arquivo existir
