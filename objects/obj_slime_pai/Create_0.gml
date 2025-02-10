@@ -51,7 +51,6 @@ if (file_exists(arquivo_dados))
 }
 
 load_player_data(arquivo_dados)
-save_player_data(global.player_data,arquivo_dados)
 
 #macro Resolution_W 800
 #macro Resolution_H 500

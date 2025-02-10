@@ -50,6 +50,7 @@
     {"id":{"name":"obj_boomba","path":"objects/obj_boomba/obj_boomba.yy",},},
     {"id":{"name":"obj_camera1","path":"objects/obj_camera1/obj_camera1.yy",},},
     {"id":{"name":"obj_centro","path":"objects/obj_centro/obj_centro.yy",},},
+    {"id":{"name":"obj_data_manager","path":"objects/obj_data_manager/obj_data_manager.yy",},},
     {"id":{"name":"obj_dialogo1","path":"objects/obj_dialogo1/obj_dialogo1.yy",},},
     {"id":{"name":"obj_drop","path":"objects/obj_drop/obj_drop.yy",},},
     {"id":{"name":"obj_exit_levels","path":"objects/obj_exit_levels/obj_exit_levels.yy",},},
