@@ -6,8 +6,6 @@ salto = -35; // Esta variável serve para guarda o valor que permite ao slime "s
 ativardialogo = true // Esta variável é usada para verificar diálogos
 mapats = layer_tilemap_get_id("Tiles_2") // Definir colisões do mapa
 direcao = 0 // Variável que armazena a direção do jogador
-global.gamepaused = false // Variável utilizada para a verificação da pausa do jogo
-global.slime = 0 // Determina qual o slime(personagem) a ser usado
 count = 0
 
 animation_active = false
@@ -33,8 +31,6 @@ enum STATES
 state = STATES.IDLE
 
 inmenu = false
-global.vida = 3
-global.pontos = 0
 //true = direita e false = esquerda
 last_dir = false
 dano = 5
@@ -49,8 +45,3 @@ if (file_exists(arquivo_dados))
         global.player_data = dados_carregados;
     }
 }
-
-load_player_data(arquivo_dados)
-
-#macro Resolution_W 800
-#macro Resolution_H 500

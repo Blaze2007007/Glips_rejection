@@ -5,29 +5,25 @@ var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(
 var _ataque = keyboard_check_pressed(ord("E"))
 mapats = layer_tilemap_get_id("Tiles_2")
 
-load_player_data(arquivo_dados)
 save_player_data(global.player_data,arquivo_dados)
-
-global.player_data.vida = int64(global.vida)
-global.player_data.pontos = int64(global.pontos)
-global.player_data.posicao._x = int64(x)
-global.player_data.posicao._y = int64(y)
-global.player_data.slime_atual = int64(global.slime)
 
 if(room == rm_nivel1)
 {
 	global.player_data.nivel = "rm_nivel1"
 	global.player_data.numero_niveis = int64(1)
+	global.player_data.niv1 = true
 }
 else if(room == rm_nivel2)
 {
 	global.player_data.nivel = "rm_nivel2"
 	global.player_data.numero_niveis = int64(2)
+	global.player_data.niv2 = true
 }
 else if(room == rm_nivel3)
 {
 	global.player_data.nivel = "rm_nivel3"
 	global.player_data.numero_niveis = int64(3)
+	global.player_data.niv3 = true
 }
 
 if(inmenu)

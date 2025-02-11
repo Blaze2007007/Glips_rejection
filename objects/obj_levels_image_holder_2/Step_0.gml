@@ -1,13 +1,4 @@
-if(global.started)
-{
-salas = global.player_data.numero_niveis
-}
-else
-{
-salas = 0
-}
-
-if(int64(salas) >= 3)
+if(global.player_data.niv3)
 {
 	image_index = 3
 	if(ativa == false)
@@ -22,12 +13,7 @@ else
 if((keyboard_check_pressed(vk_enter)|| (mouse_check_button_pressed(mb_left))) && (instance_position(mouse_x, mouse_y, obj_levels_image_holder_2) || global.escolha == 2) && image_index == 3)
 {
 	room_goto(rm_nivel3)
-	instance_activate_object(obj_slime_pai)
-	if(instance_exists(obj_slime_pai))
-	{
-		obj_slime_pai.x = 150
-		obj_slime_pai.y = 580
-	}
+	instance_create_depth(150,580,-1000,obj_slime_pai)
 }
 if(instance_position(mouse_x, mouse_y, obj_levels_image_holder_2) or global.escolha == 2)
 {
