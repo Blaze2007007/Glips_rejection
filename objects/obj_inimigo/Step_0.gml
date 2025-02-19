@@ -29,15 +29,14 @@ switch(state)
 			{
 				movex += 1 // Incrementar a variável do movimento horizontal
 				x -= movex // Mover o inimigo de acordo com a variável do movimento horizontal
-				
 				sprite_index = sprite_ini_moving
 				
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
 					vely = 0
-					if(collision_rectangle(bbox_left-10,y+25,bbox_left,y,_mapats,false,false))
+					if(collision_rectangle(bbox_left-10,y+15,bbox_left,y,_mapats,false,false))
 					{
-						vely = -12 * grv
+						vely = -30 * grv
 					}
 				}
 				else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
@@ -112,15 +111,14 @@ switch(state)
 			{
 				movex -= 1 // Decrementar a variável do movimento horizontal
 				x -= movex // Mover o inimigo de acordo com a variável do movimento horizontal
-				
 				sprite_index = sprite_ini_moving
 				
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
 					vely = 0
-					if(collision_rectangle(bbox_right+10,y+25,bbox_right,y,_mapats,false,false))
+					if(collision_rectangle(bbox_right+10,y+15,bbox_right,y,_mapats,false,false))
 					{
-						vely = -12 * grv
+						vely = -30 * grv
 					}
 				}
 				else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
@@ -196,9 +194,9 @@ switch(state)
 				if(place_meeting(x,y+2,_mapats)) // Se estiver a tocar no chão (colisão do mapa) a velocidade vertical do inimigo é igual a 0
 				{
 					vely = 0
-					if(collision_rectangle(bbox_left-10,y+25,bbox_left,y,_mapats,false,false))
+					if(collision_rectangle(bbox_left-10,y+15,bbox_left,y,_mapats,false,false))
 					{
-						vely = -12 * grv
+						vely = -30 * grv
 					}
 				}
 				else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
@@ -339,9 +337,9 @@ switch(state)
 					break
 				}
 			}
-			if(collision_rectangle(bbox_left-20,y+25,bbox_left,y,_mapats,false,false) or collision_rectangle(bbox_right+20,y+25,bbox_right,y,_mapats,false,false))
+			if(collision_rectangle(bbox_left-20,y+15,bbox_left,y,_mapats,false,false) or collision_rectangle(bbox_right+20,y+15,bbox_right,y,_mapats,false,false))
 			{
-				vely = -12 * grv
+				vely = -30 * grv
 			}
 		}
 		else if(vely < 1) // Se não colidir com o chão aplica-se gravidade ao inimigo
@@ -446,21 +444,39 @@ switch(state)
 	#region
 		if(global.vida_inimigo == 0) // Se a vida do inimigo for igual a zero(morrer), criam-se instancias do objeto drop perto do inimigo já morto, as que, ao serem apanhadas dão pontos
 		{
-			instance_destroy(self) //Apagar inimigo
-			for(var _i;_i < enemy_drops;_i++)//Ciclo para criação das instâncias do objeto drop
+			if(enemy_id == 0)
 			{
-				var _random_pos = random(100) // definição da posição dos drops
-				var _esc_dir = choose(0,1) // Direção dos drops
-				switch(_esc_dir)
+				instance_destroy(self) //Apagar inimigo
+				for(var _i;_i < enemy_drops;_i++)//Ciclo para criação das instâncias do objeto drop
 				{
-					case 0:
-						_random_pos = sign(_random_pos)
-					case 1:
-						break
+					var _random_pos = random(100) // definição da posição dos drops
+					var _esc_dir = choose(0,1) // Direção dos drops
+					switch(_esc_dir)
+					{
+						case 0:
+							_random_pos = sign(_random_pos)
+						case 1:
+							break
+					}
+					instance_create_depth(x + _random_pos,y,depth,obj_drop) // criação dos drops
 				}
-				instance_create_layer(x + _random_pos,y,layer,obj_drop) // criação dos drops
-				obj_drop.image_xscale = 0.75 //Redimencionar drops
-				obj_drop.image_yscale = 0.75
+			}
+			else if(enemy_id == 1)
+			{
+				instance_destroy(self) //Apagar inimigo
+				for(var _i;_i < enemy_drops;_i++)//Ciclo para criação das instâncias do objeto drop
+				{
+					var _random_pos = random(100) // definição da posição dos drops
+					var _esc_dir = choose(0,1) // Direção dos drops
+					switch(_esc_dir)
+					{
+						case 0:
+							_random_pos = sign(_random_pos)
+						case 1:
+							break
+					}
+					instance_create_depth(x + _random_pos,y-60,depth,obj_drop) // criação dos drops
+				}
 			}
 		}
 		else //Se a vida do inimigo não for igual a zero passa para o estado idle do inimigo

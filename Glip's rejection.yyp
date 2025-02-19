@@ -79,7 +79,6 @@
     {"id":{"name":"rm_nivel1","path":"rooms/rm_nivel1/rm_nivel1.yy",},},
     {"id":{"name":"rm_nivel2","path":"rooms/rm_nivel2/rm_nivel2.yy",},},
     {"id":{"name":"rm_nivel3","path":"rooms/rm_nivel3/rm_nivel3.yy",},},
-    {"id":{"name":"Innit_player_data","path":"scripts/Innit_player_data/Innit_player_data.yy",},},
     {"id":{"name":"load_player_data","path":"scripts/load_player_data/load_player_data.yy",},},
     {"id":{"name":"Nineslice_stretched","path":"scripts/Nineslice_stretched/Nineslice_stretched.yy",},},
     {"id":{"name":"save_player_data","path":"scripts/save_player_data/save_player_data.yy",},},

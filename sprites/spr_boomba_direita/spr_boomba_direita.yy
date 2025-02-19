@@ -28,7 +28,7 @@
   ],
   "name":"spr_boomba_direita",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"grp_boomba",
     "path":"folders/Sprites/grp_inimigos/grp_boomba.yy",
@@ -96,7 +96,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":36,
-    "yorigin":26,
+    "yorigin":3,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

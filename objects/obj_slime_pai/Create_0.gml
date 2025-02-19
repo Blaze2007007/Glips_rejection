@@ -7,9 +7,10 @@ ativardialogo = true // Esta variável é usada para verificar diálogos
 mapats = layer_tilemap_get_id("Tiles_2") // Definir colisões do mapa
 direcao = 0 // Variável que armazena a direção do jogador
 count = 0
-
-animation_active = false
-animation_ended = true
+_stop = false
+attaking = false
+direita = false
+esquerda = false
 
 sprite_index = spr_slimenormal
 
@@ -32,7 +33,7 @@ state = STATES.IDLE
 
 inmenu = false
 //true = direita e false = esquerda
-last_dir = false
+last_dir = 1
 dano = 5
 
 arquivo_dados = "jogador_dados.json";

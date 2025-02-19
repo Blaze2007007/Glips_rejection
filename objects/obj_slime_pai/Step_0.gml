@@ -7,6 +7,36 @@ mapats = layer_tilemap_get_id("Tiles_2")
 
 save_player_data(global.player_data,arquivo_dados)
 
+if(_ataque && !attaking)
+{
+	attaking = true
+	image_index = 0
+}
+if(_direita)
+{
+	last_dir = 1
+}
+if(_esquerda)
+{
+	last_dir = -1
+}
+if(_ataque && _direita)
+{
+	direita = true
+	esquerda = false
+}
+if(_ataque && _esquerda)
+{
+	direita = false
+	esquerda = true
+}
+
+function stop()
+{
+	slimevel = 0
+	salto = 0
+}
+
 if(room == rm_nivel1)
 {
 	global.player_data.nivel = "rm_nivel1"
@@ -31,15 +61,6 @@ if(inmenu)
 	global.gamepaused = true
 }
 
-if(keyboard_check_pressed(ord("C")) && ativardialogo == false)
-{
-	global.slime ++
-	if(global.slime == 3)
-	{
-		global.slime = 0
-	}
-}
-
 if(global.slime == 0)
 {
 	sprite_idle = spr_slimenormal
@@ -61,47 +82,69 @@ else if(global.slime == 2)
 	sprite_morto = spr_slimemoldavel_morto
 	sprite_moving =	spr_slimemoldavel_direita
 }
-
-//Para onde nos mexemos horizontalmente
-direcao = _direita - _esquerda
-
-velx = direcao * slimevel
-
-if(_direita)
+if(!global.dead)
 {
-	image_xscale = 1	
+	if(keyboard_check_pressed(ord("C")) && (!ativardialogo || global.troca))
+	{
+		global.slime ++
+		if(global.slime == 3)
+		{
+			global.slime = 0
+		}
+		global.troca = true
+	}
+	
+	//Para onde nos mexemos horizontalmente
+	direcao = _direita - _esquerda
+	
+	velx = direcao * slimevel
+	
+	if(_direita)
+	{
+		image_xscale = 1	
+	}
+	else
+	{
+		image_xscale = -1
+	}
+	if(place_meeting(x,y+2,mapats))
+	{
+		vely = 0
+		if(_cima)
+		{
+			vely = salto * grv
+		}
+	}
+	else if(vely < 10)
+	{
+		vely += 1
+	}
+	move_and_collide(velx,vely,mapats)
+	
+	state = STATES.IDLE
 }
 else
 {
-	image_xscale = -1
+	if(place_meeting(x,y,mapats))
+	{
+		vely = 0
+		state = STATES.DEAD
+	}
+	else if(vely < 1)
+	{
+		vely += 1
+		state = STATES.IDLE
+	}
+	
+	
 }
-
-
-function stop()
-{
-	slimevel = 0
-	salto = 0
-}
-
-if(place_meeting(x,y+2,mapats))
-{
-	vely = 0
-if(_cima)
-{
-vely = salto * grv
-}
-}else if(vely < 10)
-{
-	vely += 1
-}
-move_and_collide(velx,vely,mapats)
-
-state = STATES.IDLE
-
 switch(state)
 {
 	case STATES.IDLE:
 	#region 
+	if(!global.dead)
+	{
+		image_speed = 1
 		if(_direita || _esquerda)
 		{
 			state = STATES.MOVING
@@ -114,9 +157,9 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
-		if(_ataque && animation_active)
+		if(attaking)
 		{
-				state = STATES.ATTACKING
+			state = STATES.ATTACKING
 		}
 		else
 		{
@@ -140,9 +183,20 @@ switch(state)
 				ds_list_destroy(_drops)
 			}
 		}
+		if(global.vida == 0)
+		{
+			state = STATES.DEAD
+		}
+	}
+	else
+	{
+		state = STATES.DEAD
+	}
 	#endregion
 	case STATES.MOVING:
 	#region
+	if(!global.dead)
+	{
 		//"" verticalmente
 		vely = vely + grv
 
@@ -154,9 +208,8 @@ switch(state)
 		{
 			sprite_index = sprite_idle
 		}
-		if(_ataque && animation_active)
-		{
-				
+		if(attaking)
+		{	
 			state = STATES.ATTACKING
 		}
 		else
@@ -225,6 +278,10 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
+		if(global.vida == 0)
+		{
+			state = STATES.DEAD
+		}
 		if(instance_exists(obj_drop))
 		{
 			count ++
@@ -248,6 +305,11 @@ switch(state)
 				ds_list_destroy(_drops)
 			}
 		}
+	}
+	else
+	{
+		state = STATES.DEAD
+	}
 	#endregion
 	case STATES.MENU:
 	#region
@@ -265,35 +327,77 @@ switch(state)
 	#endregion
 	case STATES.ATTACKING:
 	#region
-	if(keyboard_check_pressed(ord("E")) && animation_active == false)
+	if(!global.dead)
 	{
-		sprite_index = sprite_ataque
-		animation_active = true; // Activate the animation
-	image_speed = 1; // Ensure the animation is running at the normal speed
-		// Play animation only if it's active
-		if (animation_active) 
-		{
-		    // Stop the animation at the last frame
-		    if (image_index >= image_number - 1) 
+		if(attaking)
+		{ 
+			if(last_dir == 1)
 			{
-				image_index = 0
-		        sprite_index = sprite_idle; // Stop animation
-				animation_active = false
-		    }
-
+				image_xscale = 1
+			}
+			else if(last_dir == -1)
+			{
+				image_xscale = -1
+			}
+			sprite_index = sprite_ataque
+			if(image_index >= image_number - 1)
+			{
+				state = STATES.IDLE
+				attaking = false
+			}
+			else
+			{
+				sprite_index = sprite_ataque
+				state = STATES.ATTACKING
+			}
 		}
 		else
 		{
 			state = STATES.IDLE
 		}
+		if(global.vida == 0)
+		{
+			state = STATES.DEAD
+		}
 	}
 	else
 	{
-		state = STATES.IDLE
+		state = STATES.DEAD
 	}
-	
+	#endregion
+	case STATES.DEAD:
+	#region
+		if(global.vida == 0)
+		{
+			global.dead = true
+			sprite_index = sprite_morto
+			slimevel = 0
+			salto = 0
+			if(image_index >= image_number - 1)
+			{
+				image_speed = 0
+			}
+			else if(!global.dead)
+			{
+				image_speed = 1
+				state = STATES.IDLE
+			}
+		}
+		else
+		{
+			global.dead = false
+			state = STATES.IDLE
+			salto = -35
+			slimevel = 5
+			if(_stop)
+			{
+				stop()
+			}
+		}
 	#endregion
 }
+#region ifs
+
 if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 	{
 		room_goto_next()
@@ -312,7 +416,7 @@ if(global.slime == 0)
 	}
 	if(place_meeting(x,y,obj_limite))
 	{
-		stop()
+		_stop = true
 		obj_dialogo1.visible = true
 		obj_dialogo1.image_speed = 0
 		obj_dialogo1.image_index = 0
@@ -330,7 +434,7 @@ else if(global.slime == 1)
 	{
 		ativardialogo = false
 	}
-	if(ativardialogo == true)
+	if(ativardialogo)
 	{
 		sprite_index = sprite_idle
 		slimevel = 0
@@ -350,3 +454,15 @@ if(keyboard_check(ord("R")) && global.vida <= 2)
 {
 		global.vida += 1
 }
+if(instance_exists(obj_menu))
+{
+	inmenu = true
+	stop()
+}
+else if(keyboard_check_pressed(vk_escape) && inmenu == true)
+{
+	inmenu = false
+	salto = -35
+	slimevel = 5
+}
+#endregion
