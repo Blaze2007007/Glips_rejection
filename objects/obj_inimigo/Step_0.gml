@@ -376,6 +376,7 @@ switch(state)
 		if(collision_circle(x,y,32,obj_slime_pai,false,false)) // Se o inimigo colidir com o jogador o inimigo passa ao estado de ataque
 		{
 			state = ENEMYSTATES.ATTACKING // Passar para o estado de ataque
+			attaking = true
 		}
 		if(collision_circle(x,y,64,obj_slime_pai,false,false) && keyboard_check_pressed(ord("E"))) //Se o jogador se aproximar o suficiente do inimigo e clicar no "E" (atacar o inimigo), o inimigo passa para o seu estado de ser atingido
 		{
@@ -392,7 +393,7 @@ switch(state)
 		count2 = 0 // Recomeçar o temporizador
 		pode_atacar = true // Pode voltar a atacar
 	}
-	if(collision_circle(x,y,32,obj_slime_pai,false,false) && pode_atacar && global.vida > 0) // Se estiver a colidir com o jogador, poder atacar e a vida do jogador for maior do que 0, então executa o seguinte codigo
+	if(attaking && pode_atacar && global.vida > 0) // Se estiver a colidir com o jogador, poder atacar e a vida do jogador for maior do que 0, então executa o seguinte codigo
 	{
 		sprite_index = sprite_ini_ataque
 		image_speed = 1
@@ -403,6 +404,7 @@ switch(state)
 		else
 		{
 			sprite_index = sprite_ini_idle
+			attaking = false
 		}
 		global.vida -= enemy_damage // Tira vida ao jogador de acordo com o dano do inimigo
 		pode_atacar = false // Não pode atacar até ao temporizador chegar a 180

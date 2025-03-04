@@ -25,7 +25,7 @@
   ],
   "name":"spr_hollow_ataque",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"grp_hollow",
     "path":"folders/Sprites/grp_inimigos/grp_hollow.yy",
@@ -84,7 +84,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":20,
-    "yorigin":18,
+    "yorigin":23,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

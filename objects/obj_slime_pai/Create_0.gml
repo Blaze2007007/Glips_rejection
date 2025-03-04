@@ -37,12 +37,3 @@ last_dir = 1
 dano = 5
 
 arquivo_dados = "jogador_dados.json";
-// Carrega os dados se o arquivo existir
-if (file_exists(arquivo_dados)) 
-{
-    var dados_carregados = load_player_data(arquivo_dados);
-    if (dados_carregados != "") 
-	{
-        global.player_data = dados_carregados;
-    }
-}

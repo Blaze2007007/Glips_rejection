@@ -1,3 +1,5 @@
 draw_self()
-	draw_set_color(c_red)
-	draw_text_transformed(400,325,"W,A,S,D OU setas",2,2,0)
+draw_set_color(c_red)
+draw_set_font(f_Text)
+draw_text_transformed(x-100,y-50,"A,S,D OU setas para andar" ,1,1,0)
+draw_text_transformed(x-110,y-20,"W/⇧ ou espaço para saltar" ,1,1,0) 

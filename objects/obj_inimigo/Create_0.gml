@@ -16,6 +16,8 @@ facing = 0
 dir = 0
 global.count = 0
 
+attaking = false
+
 depth = 101
 sprite_ini_idle = spr_hollow_r
 sprite_ini_moving = spr_hollow_r
