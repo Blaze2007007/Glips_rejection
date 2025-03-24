@@ -432,7 +432,7 @@ switch(state)
 	{
 		state = ENEMYSTATES.ALERT // A variável "state" passa a indicar que o inimigo está no estado alerta
 	}
-	if(collision_circle(x,y,64,obj_slime_pai,false,false) && keyboard_check_pressed(ord("E"))) // Se estiver proximo o suficiente da area de ataque passa para o estado alerta
+	if(collision_circle(x,y,64,obj_slime_pai,false,false) && keyboard_check_pressed(ord("E")) && !global.dead) // Se estiver proximo o suficiente da area de ataque passa para o estado alerta
 	{
 		global.vida_inimigo -- // Decrementar a vida do inimigo com cada ataque do jogador
 	}

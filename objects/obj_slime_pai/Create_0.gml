@@ -28,6 +28,10 @@ enum STATES
 	HIT,
 	DEAD
 }
+arquivo_dados = "jogador_dados.json";
+
+var _ficheiro = file_text_open_read(arquivo_dados)
+temp_player_data = file_text_read_string(_ficheiro)
 
 state = STATES.IDLE
 
@@ -35,5 +39,3 @@ inmenu = false
 //true = direita e false = esquerda
 last_dir = 1
 dano = 5
-
-arquivo_dados = "jogador_dados.json";

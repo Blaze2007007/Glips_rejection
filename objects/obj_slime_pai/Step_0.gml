@@ -5,9 +5,16 @@ var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(
 var _ataque = keyboard_check_pressed(ord("E"))
 mapats = layer_tilemap_get_id("Tiles_2")
 
+
+global.player_data.vida = int64(global.vida)
+global.player_data.pontos = int64(global.pontos)
+global.player_data.posicao._x = int64(x)
+global.player_data.posicao._y = int64(y)
+global.player_data.slime = int64(global.slime) 
+
 save_player_data(global.player_data,arquivo_dados)
 
-if(_ataque && !attaking)
+if(_ataque && !attaking && !global.dead)
 {
 	attaking = true
 	image_index = 0
@@ -39,20 +46,14 @@ function stop()
 
 if(room == rm_nivel1)
 {
-	global.player_data.nivel = "rm_nivel1"
-	global.player_data.numero_niveis = int64(1)
 	global.player_data.niv1 = true
 }
 else if(room == rm_nivel2)
 {
-	global.player_data.nivel = "rm_nivel2"
-	global.player_data.numero_niveis = int64(2)
 	global.player_data.niv2 = true
 }
 else if(room == rm_nivel3)
 {
-	global.player_data.nivel = "rm_nivel3"
-	global.player_data.numero_niveis = int64(3)
 	global.player_data.niv3 = true
 }
 
@@ -157,7 +158,7 @@ switch(state)
 		{
 			state = STATES.MENU
 		}
-		if(attaking)
+		if(attaking && !global.dead)
 		{
 			state = STATES.ATTACKING
 		}
@@ -208,7 +209,7 @@ switch(state)
 		{
 			sprite_index = sprite_idle
 		}
-		if(attaking)
+		if(attaking && !global.dead)
 		{	
 			state = STATES.ATTACKING
 		}
@@ -404,9 +405,14 @@ if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F")))
 		x = 170
 		y = 600
 		instance_destroy(obj_hollow)
+		if(room == rm_nivel3)
+		{
+			room_goto_previous()
+		}
 	}
 if(global.slime == 0)
 {
+	image_angle = 0
 	if(!instance_exists(obj_dialogo1))
 	{
 		state = STATES.IDLE
@@ -429,6 +435,19 @@ else if(global.slime == 1)
 	{
 		vely -= 1.5
 		y -= 1
+		image_angle = 90
+	}
+	else
+	{
+		if(image_angle > 0)
+		{
+			image_angle = image_angle - 10
+		}
+		else
+		{
+			image_angle = 0
+		}
+		
 	}
 	if(!instance_exists(obj_dialogo1))
 	{
@@ -446,13 +465,30 @@ else if(global.slime == 1)
 		salto = -35
 	}
 }
+else if(global.slime == 2)
+{
+	image_angle = 0
+	if(ativardialogo)
+	{
+		sprite_index = sprite_idle
+		slimevel = 0
+		salto = 0
+	}
+	else
+	{
+		slimevel = 5
+		salto = -35
+	}
+}
 if(keyboard_check_pressed(ord("Q")) && global.vida > 0)
 {
-		global.vida = ceil(global.vida) - 1
+		global.player_data.vida = ceil(global.vida) - 1
+		global.vida --
 }
 if(keyboard_check(ord("R")) && global.vida <= 2)
 {
-		global.vida += 1
+		global.player_data.vida += 1
+		global.vida ++
 }
 if(instance_exists(obj_menu))
 {
@@ -464,5 +500,21 @@ else if(keyboard_check_pressed(vk_escape) && inmenu == true)
 	inmenu = false
 	salto = -35
 	slimevel = 5
+}
+if(global.dead)
+{
+	sprite_index = sprite_morto
+			slimevel = 0
+			salto = 0
+			if(image_index >= image_number - 1)
+			{
+				image_speed = 0
+				state = STATES.DEAD
+			}
+			else if(!global.dead)
+			{
+				image_speed = 1
+				state = STATES.IDLE
+			}
 }
 #endregion

@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bg_inicio",
+  "%Name":"obj_centro2",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_bg_inicio",
+  "name":"obj_centro2",
   "overriddenProperties":[],
   "parent":{
     "name":"grp_interacao",
@@ -30,9 +30,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bg",
-    "path":"sprites/spr_bg/spr_bg.yy",
+    "name":"spr_centro",
+    "path":"sprites/spr_centro/spr_centro.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
