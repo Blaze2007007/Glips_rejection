@@ -82,13 +82,13 @@ Justificativa: O jogo responde de forma eficiente, mas pode ser necessário otim
 
 ### 4.4. Integração
 
-Descrição: Ainda não há uma interação entre os dados do jogador guardados no ficheiro e o seus “loads”
+Descrição: Já há uma interação entre os dados do jogador, apesar de não se conseguir dar “load” nos seus dados.
 
 Avaliação:
 
 Percentual de conformidade: 50% (suficiente)
 
-Justificativa: A integração atual não está funcional, e ainda precisa de alterações no código. 
+Justificativa: A integração atual está semi-funcional, ainda precisa de alterações no código. 
 
 
 ### 4.5. Documentação
