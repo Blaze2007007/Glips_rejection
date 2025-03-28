@@ -1,1 +1,1 @@
-image_index = 0
+image_index = 0 // Definir frame da imagem

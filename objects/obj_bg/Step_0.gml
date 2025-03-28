@@ -9,15 +9,15 @@ else if(keyboard_check_pressed(vk_escape) && image_alpha == 0.75) // Se se clica
 	image_alpha = 0 // Tornar o objeto invisivel novamente, para uso futuro
 	instance_destroy(obj_menu) // Destruir o objeto
 }
-if(instance_exists(obj_menu))
+if(instance_exists(obj_menu)) // Se o objeto obj_menu existir este objeto segue o jogador
 {
 	yto = obj_slime_pai.y - 100
-	if(obj_menu.y >= yto)
+	if(obj_menu.y >= yto) // se o objeto chegar ao destino fica no destino
 	{
-		obj_menu.y = yto
+		obj_menu.y = yto // para o objeto no destino
 	}
-	else
+	else // caso não chegue ao destino, avança até lá chegar
 	{
-		obj_menu.y += (yto - y) / 15
+		obj_menu.y += (yto - y) / 15 // Avança o objeto até ao destino
 	}
 }

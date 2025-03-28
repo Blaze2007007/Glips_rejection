@@ -1,98 +1,92 @@
 //Obter teclas pressionadas
-var _direita = keyboard_check(vk_right) or keyboard_check(ord("D"))
-var _esquerda = keyboard_check(vk_left) or keyboard_check(ord("A"))
-var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(vk_space)
-var _ataque = keyboard_check_pressed(ord("E"))
-mapats = layer_tilemap_get_id("Tiles_2")
+var _direita = keyboard_check(vk_right) or keyboard_check(ord("D")) // definição de variável associada à movimentação do jogador para a direita
+var _esquerda = keyboard_check(vk_left) or keyboard_check(ord("A")) // definição de variável associada à movimentação do jogador para a esquerda
+var _cima = keyboard_check(vk_up) or keyboard_check(ord("W")) or keyboard_check(vk_space) // definição de variável associada ao do jogador
+var _ataque = keyboard_check_pressed(ord("E")) // definição de variável associada ao ataque do jogador
+mapats = layer_tilemap_get_id("Tiles_2") // definição de variável para verificação de colisões 
 
-
-global.player_data.vida = int64(global.vida)
+//Atribuição de valores à respetiva variável do jogador a ser armazenada 
+global.player_data.vida = int64(global.vida) 
 global.player_data.pontos = int64(global.pontos)
 global.player_data.posicao._x = int64(x)
 global.player_data.posicao._y = int64(y)
 global.player_data.slime = int64(global.slime) 
 
-save_player_data(global.player_data,arquivo_dados)
+save_player_data(global.player_data,arquivo_dados) // guardar dados do jogador
 
-if(_ataque && !attaking && !global.dead)
+if(_ataque && !attaking && !global.dead) // Se o jogador clicar no botão para a atacar e não estiver a atacar nem morto executa o seguinte código 
 {
-	attaking = true
-	image_index = 0
+	attaking = true //Trocar a variável boolean de verificação de ataque para true(está a atacar)
+	image_index = 0 // troca de indice da imagem do personagem para o 1ºFrame
 }
-if(_direita)
+if(_direita) // Se o jogador clicar no botão de movimento para a direita executa o seguinte código
 {
-	last_dir = 1
+	last_dir = 1 // Armazenamento da ultima direção para a qual o jogador andou(direita)
 }
 if(_esquerda)
 {
-	last_dir = -1
-}
-if(_ataque && _direita)
-{
-	direita = true
-	esquerda = false
-}
-if(_ataque && _esquerda)
-{
-	direita = false
-	esquerda = true
+	last_dir = -1 // Armazenamento da ultima direção para a qual o jogador andou(esquerda)
 }
 
-function stop()
+function stop() // Função usada para parar o jogador
 {
-	slimevel = 0
-	salto = 0
+	slimevel = 0 // anulamento da velocidade do jogador
+	salto = 0 // anulamento da força de salto do jogador
 }
 
-if(room == rm_nivel1)
+if(room == rm_nivel1) // Se o nivel for rm_nivel1 guarda a variável global.player_data.niv1 como true 
 {
 	global.player_data.niv1 = true
 }
-else if(room == rm_nivel2)
+else if(room == rm_nivel2) // Se o nivel for rm_nivel2 guarda a variável global.player_data.niv2 como true 
 {
 	global.player_data.niv2 = true
 }
-else if(room == rm_nivel3)
+else if(room == rm_nivel3) // Se o nivel for rm_nivel3 guarda a variável global.player_data.niv3 como true 
 {
 	global.player_data.niv3 = true
 }
 
-if(inmenu)
+if(inmenu) // enquanto se estiver com o menu aberto(inmenu == true) a variável global.gamepaused é guardada como true 
 {
 	global.gamepaused = true
 }
+else // caso contrário a variável passa a ser guardada como false
+{
+	global.gamepaused = false
+}
 
-if(global.slime == 0)
+if(global.slime == 0) // se o indice do slime(personagem) for igual a 0(1º) então guarda as respetivas variáveis 
 {
-	sprite_idle = spr_slimenormal
-	sprite_ataque = spr_slimenormal_ataque_direita
-	sprite_morto = spr_slimenormal_morto
-	sprite_moving =	spr_slimenormal_direita
+	sprite_idle = spr_slimenormal // variável idle do personagem
+	sprite_ataque = spr_slimenormal_ataque_direita // variável de ataque do personagem
+	sprite_morto = spr_slimenormal_morto // variável de morte do personagem
+	sprite_moving =	spr_slimenormal_direita // variável de movimento do personagem
 }
-else if(global.slime == 1)
+else if(global.slime == 1) // se o indice do slime(personagem) for igual a 1(2º) então guarda as respetivas variáveis 
 {
-	sprite_idle = spr_slimepegajoso
-	sprite_ataque = spr_slimepegajoso
-	sprite_morto = spr_slimepegajoso_morto
-	sprite_moving =	spr_slimepegajoso_direita
+	sprite_idle = spr_slimepegajoso // variável idle do personagem
+	sprite_ataque = spr_slimepegajoso // variável de ataque do personagem
+	sprite_morto = spr_slimepegajoso_morto // variável de morte do personagem
+	sprite_moving =	spr_slimepegajoso_direita // variável de movimento do personagem
 }
-else if(global.slime == 2)
+else if(global.slime == 2) // se o indice do slime(personagem) for igual a 2(3º) então guarda as respetivas variáveis 
 {
-	sprite_idle = spr_slimemoldavel
-	sprite_ataque = spr_slimemoldavel_ataque_direita
-	sprite_morto = spr_slimemoldavel_morto
-	sprite_moving =	spr_slimemoldavel_direita
+	sprite_idle = spr_slimemoldavel // variável idle do personagem
+	sprite_ataque = spr_slimemoldavel_ataque_direita // variável de ataque do personagem
+	sprite_morto = spr_slimemoldavel_morto // variável de morte do personagem
+	sprite_moving =	spr_slimemoldavel_direita // variável de movimento do personagem
 }
-if(!global.dead)
+if(!global.dead) // se o jogador não estiver morto executa-se o código dentro da condição
 {
-	if(keyboard_check_pressed(ord("C")) && (!ativardialogo || global.troca))
+	if(keyboard_check_pressed(ord("C")) && (!ativardialogo || global.troca)) // se o jogador pressionar a tecla C e o dialogo com o segundo personagem estiver acabado ou ser permitida a troca executa o seguinte código
 	{
-		global.slime ++
-		if(global.slime == 3)
+		global.slime ++ // aumentar o indice do slime(trocar para a proxima personagem)
+		if(global.slime == 3) // se o indice do slime chegar ao seu limite volta para o início
 		{
-			global.slime = 0
+			global.slime = 0 // reiniciar o indice do slime
 		}
-		global.troca = true
+		global.troca = true // armazenar a variável de troca como true caso se tenha acabado o dialogo e clicado C pela primeira vez
 	}
 	
 	//Para onde nos mexemos horizontalmente
