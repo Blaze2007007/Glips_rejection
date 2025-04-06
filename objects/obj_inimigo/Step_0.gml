@@ -406,7 +406,14 @@ switch(state)
 			sprite_index = sprite_ini_idle
 			attaking = false
 		}
-		global.vida -= enemy_damage // Tira vida ao jogador de acordo com o dano do inimigo
+		if(global.gamepaused)
+		{
+			global.vida = global.vida
+		}
+		else
+		{
+			global.vida -= enemy_damage // Tira vida ao jogador de acordo com o dano do inimigo
+		}
 		pode_atacar = false // Não pode atacar até ao temporizador chegar a 180
 		count2 = 0 // Recomeça o temporizador
 	}

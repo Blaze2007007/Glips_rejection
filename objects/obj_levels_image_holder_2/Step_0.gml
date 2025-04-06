@@ -1,3 +1,7 @@
+if(!global.started)
+niv3 = false
+else
+niv3 = global.player_data.niv3
 if(niv3)
 {
 	image_index = 3

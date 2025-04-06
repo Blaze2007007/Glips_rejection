@@ -1,4 +1,9 @@
-if(global.player_data.niv1 && global.started)
+if(!global.started)
+niv1 = false
+else
+niv1 = global.player_data.niv1
+
+if(niv1)
 {
 	image_index = 1
 	if(ativa == false)

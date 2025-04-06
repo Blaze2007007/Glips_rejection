@@ -4,4 +4,7 @@ dados_json = file_text_read_string(file); // Lê e armazena os dados do ficheiro
 global.player_data = 0
 ativa = false
 
+if(!global.started)
+niv2 = false
+else
 niv2 = global.player_data.niv2
