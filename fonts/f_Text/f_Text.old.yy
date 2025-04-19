@@ -220,6 +220,7 @@
   "pointRounding":0,
   "ranges":[
     {"lower":32,"upper":255,},
+    {"lower":8679,"upper":8679,},
     {"lower":9647,"upper":9647,},
   ],
   "regenerateBitmap":false,
@@ -229,10 +230,7 @@
   "sdfSpread":8,
   "size":26.0,
   "styleName":"Medium",
-  "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
-  },
+  "textureGroupId":null,
   "TTFName":"",
   "usesSDF":false,
 }

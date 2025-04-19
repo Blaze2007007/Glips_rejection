@@ -1,5 +1,5 @@
 {
-  "$GMProject":"",
+  "$GMProject":"v1",
   "%Name":"Glip's rejection",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
@@ -34,13 +34,14 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
+  "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"m5x7.ttf","CopyToMask":-1,"filePath":"datafiles","name":"m5x7.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.13.1.193",
   },
   "name":"Glip's rejection",
   "resources":[
@@ -72,6 +73,7 @@
     {"id":{"name":"obj_slimepegajoso","path":"objects/obj_slimepegajoso/obj_slimepegajoso.yy",},},
     {"id":{"name":"obj_start","path":"objects/obj_start/obj_start.yy",},},
     {"id":{"name":"obj_text","path":"objects/obj_text/obj_text.yy",},},
+    {"id":{"name":"obj_tutorial_manager","path":"objects/obj_tutorial_manager/obj_tutorial_manager.yy",},},
     {"id":{"name":"obj_tutorial","path":"objects/obj_tutorial/obj_tutorial.yy",},},
     {"id":{"name":"obj_vida","path":"objects/obj_vida/obj_vida.yy",},},
     {"id":{"name":"ps1","path":"particles/ps1/ps1.yy",},},
@@ -82,6 +84,7 @@
     {"id":{"name":"rm_nivel2","path":"rooms/rm_nivel2/rm_nivel2.yy",},},
     {"id":{"name":"rm_nivel3","path":"rooms/rm_nivel3/rm_nivel3.yy",},},
     {"id":{"name":"rm_tutorial","path":"rooms/rm_tutorial/rm_tutorial.yy",},},
+    {"id":{"name":"Correcao_de_colisoes","path":"scripts/Correcao_de_colisoes/Correcao_de_colisoes.yy",},},
     {"id":{"name":"Init_player_data","path":"scripts/Init_player_data/Init_player_data.yy",},},
     {"id":{"name":"load_player_data","path":"scripts/load_player_data/load_player_data.yy",},},
     {"id":{"name":"Nineslice_stretched","path":"scripts/Nineslice_stretched/Nineslice_stretched.yy",},},

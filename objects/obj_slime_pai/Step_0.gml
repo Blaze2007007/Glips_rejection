@@ -33,6 +33,10 @@ function stop() // Função usada para parar o jogador
 	slimevel = 0 // anulamento da velocidade do jogador
 	salto = 0 // anulamento da força de salto do jogador
 }
+if(global.gamepaused)
+{
+	stop()
+}
 
 if(room == rm_nivel1) // Se o nivel for rm_nivel1 guarda a variável global.player_data.niv1 como true 
 {
@@ -213,61 +217,7 @@ switch(state)
 		}
 		if(place_meeting(x,y,mapats))//Correção de colisões
 		{
-			for(var _i = 0; _i < 1000; _i++)
-			{
-				//Direita
-				if(!place_meeting(x + _i,y,mapats))
-				{
-					x += _i
-					break
-				}
-				//Esquerda
-				if(!place_meeting(x - _i,y,mapats))
-				{
-					x -= _i
-					break
-				}
-				//Cima
-				if(!place_meeting(x,y - _i,mapats))
-				{
-					y -= _i
-					break
-				}
-				//Baixo
-				if(!place_meeting(x,y + _i,mapats))
-				{
-					y += _i
-					break
-				}
-				//Topo direita
-				if(!place_meeting(x + _i,y - _i,mapats))
-				{
-					x += _i
-					y -= _i
-					break
-				}
-				//Topo esquerda
-				if(!place_meeting(x - _i,y - _i,mapats))
-				{
-					x -= _i
-					y -= _i
-					break
-				}
-				//Baixo direita
-				if(!place_meeting(x + _i,y + _i,mapats))
-				{
-					x += _i
-					y += _i
-					break
-				}
-				//Baixo esquerda
-				if(!place_meeting(x - _i,y + _i,mapats))
-				{
-					x -= _i
-					y += _i
-					break
-				}
-			}
+			correcao_de_colisoes(mapats)
 		}
 		if(keyboard_check_pressed(vk_escape))
 		{
