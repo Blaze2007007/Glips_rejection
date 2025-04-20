@@ -132,7 +132,6 @@ else
 	else if(vely < 1)
 	{
 		vely += 1
-		state = STATES.IDLE
 	}
 	
 	
@@ -312,7 +311,7 @@ switch(state)
 	#endregion
 	case STATES.DEAD:
 	#region
-		if(global.vida == 0)
+		if(global.vida <= 0)
 		{
 			global.dead = true
 			sprite_index = sprite_morto
