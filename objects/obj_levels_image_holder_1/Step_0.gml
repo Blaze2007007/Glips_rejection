@@ -1,6 +1,3 @@
-if(!global.started)
-niv2 = false
-else
 niv2 = global.player_data.niv2
 
 if(niv2)

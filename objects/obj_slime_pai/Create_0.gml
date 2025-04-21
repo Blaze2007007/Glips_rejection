@@ -19,6 +19,10 @@ sprite_ataque = spr_slimenormal_ataque_direita
 sprite_morto = spr_slimenormal_morto
 sprite_moving =	spr_slimenormal_direita
 
+player_hp = global.vida
+player_pontos = global.pontos
+player_slime = global.slime
+
 enum STATES
 {
 	IDLE,
@@ -29,9 +33,6 @@ enum STATES
 	DEAD
 }
 arquivo_dados = "jogador_dados.json";
-
-var _ficheiro = file_text_open_read(arquivo_dados)
-temp_player_data = file_text_read_string(_ficheiro)
 
 state = STATES.IDLE
 

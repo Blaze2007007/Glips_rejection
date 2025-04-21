@@ -4,7 +4,6 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_slime_pai",
@@ -34,6 +33,8 @@
     {"$GMObjectProperty":"v1","%Name":"sprite_moving","filters":[],"listItems":[],"multiselect":false,"name":"sprite_moving","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal_direita","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"sprite_ataque","filters":[],"listItems":[],"multiselect":false,"name":"sprite_ataque","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal_ataque_direita","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"sprite_morto","filters":[],"listItems":[],"multiselect":false,"name":"sprite_morto","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_slimenormal_morto","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"player_pontos","filters":[],"listItems":[],"multiselect":false,"name":"player_pontos","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"player_slime","filters":[],"listItems":[],"multiselect":false,"name":"player_slime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

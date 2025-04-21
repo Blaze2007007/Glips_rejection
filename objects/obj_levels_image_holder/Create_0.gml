@@ -1,10 +1,8 @@
 global.escolha = 0
 aumentar = false
+if(!global.player_data.niv1)
 ativa = false
-
-global.player_data = 0
-
-if(!global.started)
-niv1 = false
 else
+ativa = true
+
 niv1 = global.player_data.niv1

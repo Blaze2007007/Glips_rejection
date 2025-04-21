@@ -10,6 +10,11 @@ if(instance_exists(obj_slime_pai)) // se o objeto obj_slime_pai existir define a
 count ++ // incremento de temporizador
 if(count == 180) // se o temporizador contar 3 segundos(180 frames) carregam-se os dados do jogador e o temporizador reinicia
 {
-	load_player_data(arquivo_dados)
+	mensagem = true
 	count = 0
 }
+else
+{
+	mensagem = false
+}
+global.player_data = load_player_data(arquivo_dados,mensagem)

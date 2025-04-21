@@ -130,13 +130,14 @@ switch (state) {
 					alarm_set(0,90)
 				}
 			    attaking = true;
-			} 
-			else 
+			}  
+			else
 			{
 			    attaking = false;
 			}
 			
-			if (collision_circle(x, y, 64, obj_slime_pai, false, false) && keyboard_check_pressed(ord("E"))) {
+			if (collision_circle(x, y, 64, obj_slime_pai, false, false) && keyboard_check_pressed(ord("E"))) 
+			{
 			    state = ENEMYSTATES.HIT;
 			}
 		}
@@ -148,59 +149,60 @@ switch (state) {
         break;
 
     case ENEMYSTATES.ATTACKING:
-        // Estado ATTACKING
-        count2++;
-
-        if (count2 == 90)
-		{
-            count2 = 0;
-			if(collision_circle(x, y, 32, obj_slime_pai, false, false))
-			{
-				attaking = true
-			}
-			else
-			{
-				attaking = false
-			}
-        }
-        if (attaking && pode_atacar && global.vida > 0) 
-		{
-			image_index = 0
-            sprite_index = sprite_ini_ataque;
-            image_speed = 1;
-
-            if (image_index < image_number - 1) 
-			{
-                sprite_index = sprite_ini_ataque;
-            } 
-			else if(!attaking)
-			{
-				sprite_index = sprite_ini_idle;
-            }
+			// Estado ATTACKING
+			count2++;
 			
-            if (!global.gamepaused)
+			if (count2 == 90)
 			{
-                global.vida -= enemy_damage;
-                attaking = false;
-            }
-            count2 = 0;
-			pode_atacar = false
-        }
-		else 
-		{
-            sprite_index = sprite_ini_idle;
-        }
-        if (collision_circle(x, y, 64, obj_slime_pai, false, false) && keyboard_check_pressed(ord("E"))) 
-		{
-            state = ENEMYSTATES.HIT;
-        }
-
-        if (!place_meeting(x, y, obj_slime_pai)) 
-		{
-            state = ENEMYSTATES.ALERT;
-        }
-		sprite_index = sprite_ini_ataque;
-        break;
+			    count2 = 0;
+				if(collision_circle(x, y, 32, obj_slime_pai, false, false))
+				{
+					attaking = true
+				}
+				else
+				{
+					attaking = false
+				}
+				pode_atacar = true
+			}
+			if (attaking && pode_atacar && global.vida > 0 && !global.dead) 
+			{
+				image_index = 0
+			    sprite_index = sprite_ini_ataque;
+			    image_speed = 1;
+			
+			    if (image_index < image_number - 1) 
+				{
+			        sprite_index = sprite_ini_ataque;
+			    } 
+				else if(!attaking)
+				{
+					sprite_index = sprite_ini_idle;
+			    }
+				
+			    if (!global.gamepaused)
+				{
+			        global.vida -= enemy_damage;
+			    }
+			    count2 = 0;
+				pode_atacar = false
+			}
+			else 
+			{
+			    sprite_index = sprite_ini_idle;
+				state = ENEMYSTATES.IDLE
+			}
+			if (collision_circle(x, y, 64, obj_slime_pai, false, false) && keyboard_check_pressed(ord("E"))) 
+			{
+			    state = ENEMYSTATES.HIT;
+			}
+			
+			if (!place_meeting(x, y, obj_slime_pai)) 
+			{
+			    state = ENEMYSTATES.ALERT;
+			}
+			sprite_index = sprite_ini_ataque;
+		break;
 
     case ENEMYSTATES.HIT:
         // Estado HIT
