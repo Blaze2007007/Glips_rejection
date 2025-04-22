@@ -13,15 +13,15 @@
 
 * Responsável pelo Relatório: Jorge Gonzalez Silva
 
-* Data do Relatório: 20/12/2024
+* Data do Relatório: 22/04/2025
 
 ---
 
-2. Resumo Executivo:
+## 2. Resumo Executivo:
 
 Objetivo do Projeto: O objetivo deste projeto é abranger o utilizador em uma experiência de jogo, este criado por referência a outro jogo mais antigo.
 
-Resumo das Funcionalidades: Jogabilidade focada em combate.
+Resumo das Funcionalidades: Jogabilidade focada em combate e exploração.
 
 Sistema de estados para inimigo.
 
@@ -33,10 +33,14 @@ Persistência de dados utilizando JSON.
 
 ---
 
-3. Metodologia de Desenvolvimento
+## 3. Metodologia de Desenvolvimento
 Modelo de Desenvolvimento Utilizado: Ágil, com ciclos iterativos de implementação e teste.
 
-Ferramentas e Tecnologias Utilizadas: GameMaker Studio 2: Ambiente principal de desenvolvimento. GX.Games: Ferramenta para integração do modo multiplayer online. JSON: Guardar as coordenadas, vida, pontos e sala do jogador, para manter o progresso. GitHub: Controle de versão detalhado e comentários descritivos para patches.
+Ferramentas e Tecnologias Utilizadas: 
+* GameMaker Studio 2: Ambiente principal de desenvolvimento.
+* GX.Games: Ferramenta para integração do modo multiplayer online.
+* JSON: Guardar as coordenadas, vida, pontos, slime(personagem) e progresso de salas e inimigos derrotados.
+* GitHub: Controle de versão detalhado e comentários descritivos para patches.
 
 Cronograma e Fases de Desenvolvimento: Foco atual no desenvolvimento de lógica single-player.
 
@@ -48,23 +52,21 @@ Cronograma e Fases de Desenvolvimento: Foco atual no desenvolvimento de lógica 
 ### 4.1. Funcionalidade
 Descrição: O jogo apresenta mecânicas robustas como interação ambiental e integração de poderes únicos dos personagens.
 
-Avaliação:
+Avaliação: Percentual de conformidade: 75% (Suficiente)
 
-Percentual de conformidade: 75% (Suficiente)
+Justificativa: Grande parte das funcionalidades foi implementada com sucesso.
 
-Justificativa: Grande parte das funcionalidades foi implementada com sucesso, com algumas melhorias previstas para o sistema de combate, precisando também de melhorias quanto à base de dados.
 
 
 ### 4.2. Segurança
 Descrição: Medidas incluem tratamento de dados no backend, validação mínima e criação de tabelas com suporte a restrições.
 
-Testes de Segurança Realizados: Verificações dos dados json ao utilizar o debugger do gamemaker studio 2
+Testes de Segurança Realizados: Verificações dos dados json ao utilizar o debugger do gamemaker studio 2, o ficheiro associado aos dados e verificações de armazenamento dos mesmos
 
-Avaliação:
+Avaliação: Percentual de conformidade: 75% (Bom)
 
-Percentual de conformidade: 50% (Insuficiente)
+Justificativa: Os dados JSON já são armazenados no ficheiro e são utilizados para guardar o progresso do jogador
 
-Justificativa: Os dados JSON já são armazenados no ficheiro, mas ainda não são utilizados
 
 
 ### 4.3. Desempenho
@@ -73,29 +75,28 @@ Descrição: Tempo de resposta do backend.
 
 Testes de Desempenho Realizados: Simulações de múltiplos acessos simultâneos ao servidor.
 
-Avaliação:
-
-Percentual de conformidade: 80% (Bom)
+Avaliação: Percentual de conformidade: 80% (Bom)
 
 Justificativa: O jogo responde de forma eficiente, mas pode ser necessário otimizar para cenários com carga maior.
 
 
 ### 4.4. Integração
 
-Descrição: Já há uma interação entre os dados do jogador, apesar de não se conseguir dar “load” nos seus dados.
+Descrição: Utiliza JSON para persistência de dados no GameMaker.
 
-Avaliação:
+Avaliação: Percentual de conformidade: 70% (Bom)
 
-Percentual de conformidade: 50% (suficiente)
+Justificativa: A integração básica atual funciona bem para single-player.
 
-Justificativa: A integração atual está semi-funcional, ainda precisa de alterações no código. 
 
 
 ### 4.5. Documentação
 Descrição: A documentação do código inclui mensagens detalhadas no console e comentários explicativos.
-Avaliação:
-Percentual de conformidade: 70% (Bom)
-Justificativa: A documentação cobre as principais funcionalidades, mas seria útil incluir exemplos de uso das APIs e manuais para desenvolvedores.
+
+Avaliação: Percentual de conformidade: 80% (Bom) 
+ 
+Justificativa: A documentação cobre as principais funcionalidades
+
 
 ---
 
@@ -117,11 +118,11 @@ Conformidade: 85%
 
 ----
 
-Teste de Segurança: Por realizar
+Testes de Segurança: Testes com o ficheiro json e os respetivos dados no jogo
 
-Resultado: Por realizar
+Resultado: Os dados são armazenados e utilizados, permitindo que se guarde o progresso do jogador
 
-Conformidade: 10%
+Conformidade: 70%
 
 ----
 
@@ -135,13 +136,13 @@ Conformidade: 70%
 
 ### -Resultados dos Testes:
 ```
-| Tipo de Teste       | Descrição                                  | Resultado   | Conformidade (%) |
-|-------------------------------|--------------------|---------------------|------------------------|
-| Teste Unitário      |  Teste de funções e lógica em GML          | Passou com correções   | [80%] |
-| Teste Funcional     | Avaliação de combate e transições de sala  | Parcialmente funcional | [85%] |
-| Teste de Segurança  | Por realizar                               | Por realizar           | [10%] |
-| Teste de Desempenho | Simulação com carga alta e uso de Debugger | FPS instáveis          | [70%] |
-|-------------------------------|---------------------|---------------------|-----------------------|	
+| Tipo de Teste       | Descrição                                  | Resultado                          | Conformidade (%) |
+|---------------------|--------------------------------------------|------------------------------------|------------------|
+| Teste Unitário      | Teste de funções e lógica em GML           | Passou com correções               |       [80%]      |
+| Teste Funcional     | Avaliação de combate e transições de sala  | Parcialmente funcional             |       [85%]      |
+| Teste de Segurança  | Testes com o ficheiro json e dados no jogo | Progresso armazenado e utilizado   |       [70%]      | 
+| Teste de Desempenho | Simulação com carga alta e uso de Debugger | FPS instáveis                      |       [70%]      |
+|---------------------|--------------------------------------------|------------------------------------|------------------|	
 ```
 
 ---
@@ -150,7 +151,7 @@ Conformidade: 70%
 
 Conclusão Geral: O projeto apresenta avanços significativos na jogabilidade e integração de sistemas, com boa aderência aos objetivos propostos.
 
-Principais Pontos Fortes: Integração com SQLite e GX.Games e documentação detalhada.
+Principais Pontos Fortes: Integração com JSON e GX.Games e documentação detalhada.
 
 Principais Pontos de Melhoria: Otimização do modo multiplayer, melhorias no desempenho em hardware menos potente.
 
@@ -171,7 +172,7 @@ Término: [31/06/2024]
 
 ---
 
-* Fase 2: Planejamento e Design
+* Fase 2: Planeamento e Design
 
 Início: 11/7/2024
 
@@ -223,17 +224,17 @@ Primeira Versão Beta: Pendente
 
 Versão funcional single-player
 
-Integração no GX.Games: Pendente(falta criar um executável para poder jogar sem ser localhost)
+Integração no GX.Games: Pendente(falta criar um executável para poder jogar sem localhost)
 Multiplayer Implementado.
 
 ---
 
 8. Anexos
 - Código-Fonte:  
-https://github.com/Blaze2007007/PAP
+https://github.com/Blaze2007007/Glips_rejection/tree/main
   
 - Manuais e Documentação Técnica:  
-  Descrições de patches no github e diário de ficheiro txt.
+  Descrições de patches no github, codigo totalmente comentado e diário de ficheiro txt.
 
 - Resultados de Testes:  
  Incluídos acima.
