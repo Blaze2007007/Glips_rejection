@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Nineslice_stretched",
+  "%Name":"script_game_text",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Nineslice_stretched",
+  "name":"script_game_text",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

@@ -7,11 +7,11 @@ global.gamepaused = false // Variável utilizada para a verificação da pausa d
 global.slime = global.player_data.slime // Determina qual o slime(personagem) a ser usado
 global.troca = false // Boolean para verificar se já se podem trocar os personagens
 global.dead = false // Boolean para verificação da morte
+global.ini1_morto = global.player_data.ini1_morto // Boolean para verificação da morte do 1º inimigo
+global.ini2_morto = global.player_data.ini2_morto // Boolean para verificação da morte do 2º inimigo
+global.ini3_morto = global.player_data.ini3_morto // Boolean para verificação da morte do 3º inimigo
 
 mensagem = true
-
-ficheiro = file_text_open_read(arquivo_dados) // definição de variável para abertura do ficheiro com os dados do jogador para asseguir se ler
-player_data = file_text_read_string(ficheiro) // definição de variável que lê o ficheiro aberto previamente e guarda os dados
 
 if(!is_struct(global.player_data))
 global.player_data = Init_player_data() // Atribuição de valores iniciais do jogador

@@ -36,11 +36,6 @@ function load_player_data(arquivo, mensagem)
         file_text_write_string(filew, dados_iniciais);
         file_text_close(filew);
 
-        if (mensagem)
-        {
-            show_debug_message(dados_iniciais);
-        }
-
         return json_parse(dados_iniciais);
     }
 }
