@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_caixa_de_dialogo",
-    "path":"sprites/spr_caixa_de_dialogo/spr_caixa_de_dialogo.yy",
+    "name":"spr_caixa_de_dialogo_1",
+    "path":"sprites/spr_caixa_de_dialogo_1/spr_caixa_de_dialogo_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

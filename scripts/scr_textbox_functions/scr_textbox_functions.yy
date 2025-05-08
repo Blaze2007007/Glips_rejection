@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"script_game_text",
+  "%Name":"scr_textbox_functions",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"script_game_text",
+  "name":"scr_textbox_functions",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

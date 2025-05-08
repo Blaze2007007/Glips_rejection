@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"grp_interacoes",
-    "path":"folders/Sprites/grp_interacoes.yy",
+    "name":"grp_sprites_dialogo",
+    "path":"folders/Sprites/grp_sprites_dialogo.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

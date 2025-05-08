@@ -9,6 +9,7 @@ if(instance_exists(obj_slime_pai)) // se o objeto obj_slime_pai existir define a
 	global.player_data.ini1_morto = global.ini1_morto
 	global.player_data.ini2_morto = global.ini2_morto
 	global.player_data.ini3_morto = global.ini3_morto
+	global.player_data.conv_1 = global.troca
 	save_player_data(global.player_data,arquivo_dados) //Armazenar os valores anteriores no ficheiro respetivo
 }
 count ++ // incremento de temporizador

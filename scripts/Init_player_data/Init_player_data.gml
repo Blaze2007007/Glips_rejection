@@ -16,6 +16,7 @@ function Init_player_data()
 		niv3: false, //variável boolean que server para verificar se o jogador já passou o terceiro nivel
 		ini1_morto: false, //variável boolean que server para verificar se o 1º inimigo já morreu
 		ini2_morto: false, //variável boolean que server para verificar se o 2º inimigo já morreu
-		ini3_morto: false //variável boolean que server para verificar se o 3º inimigo já morreu
+		ini3_morto: false, //variável boolean que server para verificar se o 3º inimigo já morreu
+		conv_1: false //variável boolean que server para verificar se a 1ª conversa já acabou
 	}
 }

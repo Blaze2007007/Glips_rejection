@@ -381,22 +381,25 @@ if(!global.dead) // se o jogador perder toda a vida executa-se o seguinte códig
 		if(!instance_exists(obj_text)) // se o objeto obj_text não existir executa-se o seguinte código 
 		{
 			state = STATES.IDLE // o jogador passa para o estado IDLE
-			ativardialogo = false // a variável ativardialogo passa a ser false
 			// permite-se o movemento do jogador
 			slimevel = 5
 			salto = -35
 		}
-		if(place_meeting(x,y,obj_limite)) // se o jogador colidir com o objeto obj_limite cria-se uma começa-se um dialogo com o 2º personagem
+		if(place_meeting(x,y,obj_limite) && ativardialogo) // se o jogador colidir com o objeto obj_limite cria-se uma começa-se um dialogo com o 2º personagem
 		{
 			_stop = true // a variável _stop passa a ser true(impede o jogador de se mexer)
-			
+			ativardialogo = false
 			//------------------------------------1ªConversa------------------------------------\\
 			var _s = id
 			with(instance_create_depth(x,y,depth,obj_text)) // ao criar o objeto obj_text chama-se a função create_textbox (o que começa uma conversa)
 			{
-				create_textbox(_s.text_id)
+					create_textbox(_s.text_id)
 			}
-			instance_destroy(obj_limite) // destruir a parede limite que permite que a conversa começe, isto serve para não continuar a conversa infinitamente
+			if(!instance_exists(obj_text) && !ativardialogo)
+			{
+				instance_destroy(obj_limite) // destruir a parede limite que permite que a conversa começe, isto serve para não continuar a conversa infinitamente
+				global.player_data.conv_1 = true
+			}
 		}
 	}
 	else if(global.slime == 1) // se o jogador estiver a jogar do segundo personagem executa-se o seguinte código
@@ -419,11 +422,7 @@ if(!global.dead) // se o jogador perder toda a vida executa-se o seguinte códig
 			}
 			
 		}
-		if(!instance_exists(obj_text)) // se o objeto obj_text não existir ativardialogo passa a ser false 
-		{
-			ativardialogo = false
-		}
-		if(ativardialogo) // se a variável ativardialogo for verdadeira executa-se o seguinte código
+		if(!ativardialogo && instance_exists(obj_text)) // se a variável ativardialogo for verdadeira executa-se o seguinte código
 		{
 			sprite_index = sprite_idle // o sprite do jogador passa a ser o sprite_idle
 			stop() //o jogador deixa de se poder mexer
@@ -437,7 +436,7 @@ if(!global.dead) // se o jogador perder toda a vida executa-se o seguinte códig
 	else if(global.slime == 2) // se o jogador estiver a jogar com o terceiro personagem executa-se o seguinte código
 	{
 		image_angle = 0 // o angulo do sprite volta ao normal
-		if(ativardialogo && is_struct(global.player_data)) // se a variável ativardialogo for verdadeira e a variável global estiver preenchida executa-se o seguinte código
+		if(!ativardialogo && instance_exists(obj_text)) // se a variável ativardialogo for false executa-se o seguinte código
 		{
 			sprite_index = sprite_idle // o sprite do jogador passa a ser o sprite_idle
 			stop() //o jogador deixa de se poder mexer
@@ -493,10 +492,5 @@ if(global.dead or global.gamepaused) // se o jogador estiver morto ou se o jogo 
 				image_speed = 1
 				state = STATES.IDLE
 			}
-}
-//#####DEBUG#####\\
-if(keyboard_check_pressed(ord("F")))
-{
-	instance_destroy(obj_text)
 }
 #endregion
