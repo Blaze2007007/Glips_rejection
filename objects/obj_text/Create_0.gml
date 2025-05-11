@@ -2,8 +2,8 @@
 depth = -999
 
 //Textbox parameters
-textbox_width = 575
-textbox_height = 165
+textbox_width = 544
+textbox_height = 160
 border = 20
 line_space = 30
 line_width =  textbox_width - border * 2

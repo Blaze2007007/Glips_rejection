@@ -23,8 +23,8 @@ if(!setup)
 		text_x_offset[p] = 224
 		portrait_x_offset[p] = 32
 		
-		//character on the right
-		if(speaker_side  == -1)
+		//Character on the right
+		if(speaker_side[p]  == -1)
 		{
 			text_x_offset[p] = 32
 			portrait_x_offset[p] = 608
@@ -87,7 +87,7 @@ if(!setup)
 			}
 			
 			//Add to the x and y coordinate based on the new info
-			char_x[c,p] = _txt_x + _current_txt_w
+			char_x[c,p] = _txt_x + _current_txt_w + 100
 			char_y[c,p] = _txt_y + _txt_line*line_space
 			
 		}
@@ -151,17 +151,12 @@ if(accept_key)
 
 
 //-------------------------------------draw the textbox-----------------------------------------\\
-txtb_img += txtb_img_speed
+
 var txtb_x = textbox_x + text_x_offset[page]
 var txtb_y = textbox_y
-if (is_array(txtb_spr)) {
-    txtb_spr_w = sprite_get_width(txtb_spr[page]);
-}
-
-if (is_array(txtb_spr)) {
-    txtb_spr_h = sprite_get_height(txtb_spr[page]);
-}
-
+txtb_img += txtb_img_speed
+txtb_spr_w = sprite_get_width(txtb_spr[page]);
+txtb_spr_h = sprite_get_height(txtb_spr[page]);
 
 //draw the speaker
 if(speaker_sprite[page] != noone)
@@ -177,18 +172,12 @@ if(speaker_sprite[page] != noone)
 		speaker_x += sprite_width
 	}
 	//draw the speaker
-	show_debug_message(textbox_x)
-	show_debug_message(portrait_x_offset[page])
-	show_debug_message(speaker_side[page])
-	//speaker
-	draw_sprite_ext(txtb_spr[page],txtb_img,textbox_x + portrait_x_offset[page],textbox_y,sprite_width/10,sprite_width/10,0,c_white,1)
-	//speaker background
+	draw_sprite_ext(txtb_spr[page],txtb_img,textbox_x + portrait_x_offset[page],textbox_y,sprite_width/txtb_spr_w,sprite_width/txtb_spr_h,0,c_white,1)
 	draw_sprite_ext(sprite_index,image_index,speaker_x,textbox_y,speaker_side[page],1,0,c_white,1)
 }
 
 //back of the textbox
 draw_sprite_ext(txtb_spr[page],txtb_img,txtb_x,txtb_y,textbox_width/txtb_spr_w,textbox_height/txtb_spr_h,0,c_white,1)
-
 
 //-------------------------------------------options--------------------------------------------\\
 
