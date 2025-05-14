@@ -6,6 +6,14 @@ var _ataque = keyboard_check_pressed(ord("E")) // Verifica se o jogador carregou
 
 // Obter o tilemap da camada "Tiles_2" para verificar colisões
 mapats = layer_tilemap_get_id("Tiles_2")
+if(instance_exists(obj_limite))
+{
+	ativardialogo = true // Esta variável é usada para verificar diálogos
+}
+else
+{
+	ativardialogo = false
+}
 
 // Atualizar variáveis locais com os valores globais (estado do jogador)
 player_hp = global.vida // Define a vida atual do jogador
@@ -84,7 +92,8 @@ else if(global.slime == 2) {
 // Verifica se o jogador está vivo
 if(!global.dead) {
 	// Permite troca de personagem se o jogador pressionar "C"
-	if(keyboard_check_pressed(ord("C")) && (!ativardialogo || global.troca)) {
+	if(keyboard_check_pressed(ord("C")) && (!ativardialogo || global.troca) && global.player_data.niv2) 
+	{
 		global.slime ++ // Avança para o próximo slime
 		if(global.slime == 3) {
 			global.slime = 0 // Reinicia para o primeiro slime
@@ -365,11 +374,11 @@ if(!global.dead) // se o jogador perder toda a vida executa-se o seguinte códig
 	if(place_meeting(x,y,obj_centro) && keyboard_check_pressed(ord("F"))) // se o jogador estiver em colisão com o objeto obj_centro e clicar na tecla F executa-se o seguinte código
 		{
 			room_goto_next() // segue-se para a próxima sala
+			instance_destroy(obj_slimepegajoso)
+			instance_destroy(obj_limite)
 			// posição inicial da próxima sala
 			x = 170
 			y = 600
-			instance_destroy(obj_hollow) // erradicar o inimigo da história
-			global.ini1_morto = true // guardar a erradicação do inimigo na variável global boolean ini1_morto 
 			if(room == rm_nivel3) // caso se esteja na ultima sala e as condições previamente referidas se verificarem o jogador volta para a sala anterior
 			{
 				room_goto_previous() // voltar para a sala anterior
@@ -387,6 +396,7 @@ if(!global.dead) // se o jogador perder toda a vida executa-se o seguinte códig
 		}
 		if(place_meeting(x,y,obj_limite) && ativardialogo) // se o jogador colidir com o objeto obj_limite cria-se uma começa-se um dialogo com o 2º personagem
 		{
+			instance_destroy(obj_limite) // destruir a parede limite que permite que a conversa começe
 			_stop = true // a variável _stop passa a ser true(impede o jogador de se mexer)
 			ativardialogo = false
 			//------------------------------------1ªConversa------------------------------------\\
@@ -397,7 +407,6 @@ if(!global.dead) // se o jogador perder toda a vida executa-se o seguinte códig
 			}
 			if(!instance_exists(obj_text) && !ativardialogo)
 			{
-				instance_destroy(obj_limite) // destruir a parede limite que permite que a conversa começe, isto serve para não continuar a conversa infinitamente
 				global.player_data.conv_1 = true
 			}
 		}
@@ -493,4 +502,5 @@ if(global.dead or global.gamepaused) // se o jogador estiver morto ou se o jogo 
 				state = STATES.IDLE
 			}
 }
+show_debug_message(ativardialogo)
 #endregion

@@ -162,7 +162,16 @@ txtb_spr_h = sprite_get_height(txtb_spr[page]);
 if(speaker_sprite[page] != noone)
 {
 	sprite_index = speaker_sprite[page]
-	if(draw_char == text_length[page])
+	if(image_index >= image_number - 1 && draw_char == text_length[page])
+	{
+		acabou_de_falar = true
+		image_index = 0
+	}
+	if(draw_char == 0)
+	{
+		acabou_de_falar = false
+	}
+	if(acabou_de_falar)
 	{
 		image_index = 0
 	}

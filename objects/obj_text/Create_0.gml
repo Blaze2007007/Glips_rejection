@@ -41,6 +41,8 @@ textbox_y = camera_get_view_y(view_camera[0]) + 320
 txtb_spr_w = sprite_get_width(txtb_spr[page])
 txtb_spr_h = sprite_get_height(txtb_spr[page])
 
+acabou_de_falar = false
+
 //effects
 scr_set_default_for_text()
 last_free_space = 0
