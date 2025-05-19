@@ -1,2 +1,3 @@
 draw_self()
-draw_text(x,y- 10,ativardialogo)
+if(instance_exists(obj_sala_secreta))
+draw_text(x,y- 20,abs(distance_to_point(2479,575)))

@@ -502,5 +502,25 @@ if(global.dead or global.gamepaused) // se o jogador estiver morto ou se o jogo 
 				state = STATES.IDLE
 			}
 }
-show_debug_message(ativardialogo)
+var dist = abs(distance_to_point(2478,576)) 
+
+if(instance_exists(obj_bg) && dist >= -1)
+{
+	obj_bg.image_alpha = 0.95
+	obj_sala_secreta_bg.image_alpha = 0
+	
+}
+else if(instance_exists(obj_bg))
+{
+	if(instance_exists(obj_bg) && collision_rectangle(2470,393,2480,634,obj_slime_pai,false,false))
+	{
+		obj_bg.image_alpha = dist
+		obj_sala_secreta_bg.image_alpha = dist
+	}
+	else
+	{
+		obj_bg.image_alpha = 0
+		obj_sala_secreta_bg.image_alpha = 1
+	}
+}
 #endregion

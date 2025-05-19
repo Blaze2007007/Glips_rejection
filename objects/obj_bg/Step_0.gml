@@ -1,4 +1,4 @@
- if(keyboard_check_pressed(vk_escape) && image_alpha == 0) // Se se clicar esc e a opacidade do objeto for igual a zero(invisivel), executa o seguinte codigo
+if(keyboard_check_pressed(vk_escape) && image_alpha == 0) // Se se clicar esc e a opacidade do objeto for igual a zero(invisivel), executa o seguinte codigo
 {
 	image_alpha = 0.75 // Definição da opacidade do objeto para 0.75(quase preenchido)
 	instance_create_depth(obj_slime_pai.x,yto,-100,obj_menu) // Criar o objeto menu em cima do jogador, para que, quando clicado leve o jogador para as opções de menu do jogo
