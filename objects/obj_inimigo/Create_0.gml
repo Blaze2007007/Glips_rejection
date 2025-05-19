@@ -12,18 +12,17 @@ count3 = 0 // 3º temporizador (usado para contar o tempo até à morte do inimi
 pode_atacar = true // Definir a variável "pode_atacar" como true (usada para definir se o inimigo pode ou não atacar o jogador, neste caso pode)
 sprite_idle = spr_hollow_r // Definir o sprite "Idle" do inimigo
 global.vida_inimigo = enemy_hp // Definir vida do inimigo para verificações nos ataques
-facing = 0
-dir = 0
-global.count = 0
+facing = 0 //Para onde o inimigo está a olhar(-1 -> esquerda,0 -> frente, 1 -> direita )
+global.count = 0 // temporizador
 
-attaking = false
+attaking = false // Boolean para verificação de ataque
 
-depth = 101
-sprite_ini_idle = spr_hollow_r
-sprite_ini_moving = spr_hollow_r
-sprite_ini_ataque = spr_hollow_ataque
+depth = 101 // separação de camada entre outros objetos
+sprite_ini_idle = spr_hollow_r // definição de sprite idle default dos inimigos
+sprite_ini_moving = spr_hollow_r // definição de sprite de movimento default dos inimigos
+sprite_ini_ataque = spr_hollow_ataque // definição de sprite de ataque default dos inimigos
 
-if(enemy_id == 1)
+if(enemy_id == 1) // Se o id do inimigo for igual a 1 troca os sprites para o respetivo inimigo
 {
 	sprite_ini_idle = spr_boomba
 	sprite_ini_moving = spr_boomba_direita

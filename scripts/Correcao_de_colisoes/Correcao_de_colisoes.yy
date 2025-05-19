@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Correcao_de_colisoes",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Correcao_de_colisoes",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
